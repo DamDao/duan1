@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .book-categories {
+            display: none;
+            padding: 10px;
+            background-color: #eee;
+            position: absolute;
+            top: 100%; /* Hiển thị dưới mục menu khi hover */
+            left: 0;
+            width: 200px;
+            z-index: 1; /* Đảm bảo nằm trên mọi nội dung khác */
+        }
+
+        nav li:hover .book-categories {
+            display: block;
+        }
+
+        .book-categories ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .book-categories li {
+            margin: 5px 0;
+        }
+  
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Logo Website</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Danh mục sách</a>
+                <div class="book-categories">
+                    <h2>Danh Mục Tiểu Thuyết</h2>
+                    <ul>
+                        <li>Tiểu Thuyết Hiện Đại</li>
+                        <li>Tiểu Thuyết Lịch Sử</li>
+                        <li>Tiểu Thuyết Khoa Học Viễn Tưởng</li>
+                        <!-- Thêm các danh mục sách khác tùy theo nhu cầu -->
+                    </ul>
+                </div>
+            </li>
+            
+            <!-- Thêm các mục menu khác tùy theo nhu cầu -->
+        </ul>
+    </nav>
+
+    <!-- Nội dung trang web sẽ đặt ở đây -->
+<div class="dv">
+đây là nội dung
+</div>
+</body>
+</html>

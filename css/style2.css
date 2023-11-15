@@ -1,0 +1,219 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 5px;
+  }
+  .menu_admin {
+    background-color: var(--theme-color);
+    color: #ffffff;
+    border-radius: 5px;
+    margin-left: 20px;
+  }
+  .menu_admin ul li {
+    list-style: none;
+    display: flex;
+    padding: 0px 10px;
+  }
+  
+  .menu_admin ul li a {
+    color: #0f0e0e;
+    text-decoration: none;
+    transition: 0.5s;
+    display: block;
+    margin-top: 50px;
+  }
+  
+  .menu_admin ul li a:hover {
+    color: #FFF;
+    font-size: 0.8vw;
+  }
+  frm_title {
+    background-color: rgb(0 0 0 / 80%);
+    ;
+    border: 1px #CCC solid;
+    color: #FFF;
+    border-radius: 5px;
+    padding: 0px 20px;
+  }
+  
+  .frm_content {
+    padding: 20px 0px;
+  }
+  
+  .frm_ds_loai table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .frm_ds_loai table th {
+    /* width: 10%; */
+    padding: 20px;
+    background-color: #CCC;
+  }
+  
+  /* .frm_ds_loai table th:nth-child(2){
+      width: 30%;
+      background-color: #CCC;
+  }
+  .frm_ds_loai table th:nth-child(3){
+      width: 40%;   
+      background-color: #666;
+  
+  }
+  .frm_ds_loai table th:nth-child(4){
+      width: 20%;
+      background-color: #CCC;
+  
+  } */
+  .frm_ds_loai table td {
+    padding: 10px 20px;
+    border: 1px #CCC solid;
+    text-align: center;
+  }
+  
+  
+  .img_banner img{
+    width: 100%;
+    height: 290px;
+  }
+  .next_prev{
+  
+    position: absolute;
+    color: #ffffff94;
+    width: 53%;
+    height: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 13px;
+  }
+  .next,.prev{
+    font-size: 35px;
+  }
+  .next:hover,
+  .prev:hover{
+    color: #FFF;
+    cursor: pointer;
+  }
+  
+  
+  .spct {
+    text-align: center;
+  }
+  
+  .spct img {
+    width: 350px;
+    /* height: 280px; */
+    border-radius: 8px;
+  }
+  
+  .spcl {}
+  
+  .spcl li {
+    list-style: none;
+  }
+  
+  .spcl li a {
+    text-decoration: none;
+    padding: 7px;
+    display: block;
+    font-size: larger;
+    color: #4d4c4c;
+    font-weight: 600;
+  
+  }
+  
+  .spcl li a:hover {
+    color: rgb(14, 49, 119);
+    text-decoration: underline;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* kkkk */
+  
+  /* footer section starts */
+  #footer {
+    font-family: BalloExtra;
+    height: auto;
+    padding-bottom: 40px;
+    background-image: linear-gradient(rgba(51, 51, 51, 0.86),
+        rgba(51, 51, 51, 0.86)),
+      url("./img/anh2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 2rem;
+  }
+  
+  
+  #footer,
+  .footer-left,
+  .footer-right {
+    display: flex;
+  }
+  .footer-left,
+  .footer-right {
+    margin-top: 3rem;
+  }
+  
+  .footer-left {
+    padding-left: 12%;
+    align-items: center;
+    width: 65%;
+  }
+  
+  .footer-right {
+    margin-top: 3.5rem;
+    gap: 3rem;
+    padding-right: 12%;
+    width: 35%;
+  }
+  
+  #footer h3 {
+    font-family: BalooExtra;
+    text-align: start;
+    color: var(--yellow-color);
+  }
+  
+  #footer p,
+  #footer a {
+    font-family: Barlow;
+    color: #ffff;
+    text-align: start;
+  }
+  
+  #footer a {
+    text-decoration: none;
+    display: block;
+    line-height: 1.8rem;
+  }
+  
+  .footer-left .footer-logo {
+    width: 45%;
+    margin-right: 2.3rem;
+  }
+  
+  .footer-logo img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .footer-logo h1{
+    color: #FFF;
+    text-align: center;
+    margin: 11px;
+    font-size: 1.2vw;
+  }
+  
+  #footer i {
+    color: var(--yellow-color);
+  }
+  
+  #footer .card_1 {
+    width: 70%;
+  }
