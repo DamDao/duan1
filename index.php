@@ -76,7 +76,10 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             include "view/regis_login/login.php";
 
             break;
-
+            case 'dangxuat':
+                session_destroy();
+                header('Location:index.php');
+                break;
 
         default:
             include "view/home.php";

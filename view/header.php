@@ -81,6 +81,7 @@
             <div class="user-links" id="user-links">
                 <a  href="index.php?act=dangnhap">Đăng nhập</a> <!--Chèn link dẫn đến file đăng nhập vào đây -->
                 <a  href="index.php?act=dangky">Đăng ký</a> <!--Chèn link dẫn đến file đăng ký vào đây -->
+                <a  href="index.php?act=dangxuat">Đăng xuất</a>
             </div>
         </div>
     </header>
