@@ -60,18 +60,18 @@
                         </ul>
                     </span>
                 </div>
-                Ý kiến đóng góp đến  daoddph31941@fpt.edu.vn bằng email
+                Ý kiến đóng góp đến daoddph31941@fpt.edu.vn bằng email
                 @fpt.edu.vn
             </div>
         </div>
         <div class="footer-filter-by-campus-mobile">
             <div class="brand-logo">
-                <img id="poly-logo" src="https://ap.poly.edu.vn/images/logo.png" alt width="250">
+                <img id="poly-logo" src="upload/mau-logo-nha-sach.jpg" alt width="250">
             </div>
             <h6 class="kt-widget1__title">
                 <i class="fas fa-map-marker-alt"></i>
                 <a class="kt-link address">
-                     Nam Từ Liêm - Hà Nội.
+                    Nam Từ Liêm - Hà Nội.
                 </a>
             </h6>
             <div class="campus-contact-content">

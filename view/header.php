@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./view/css/style2.css">
+    <!-- <link rel="stylesheet" href="./view/css/style.css"> -->
+    <link rel="stylesheet" href="./view/css/style_regis.css">
+    <!-- <link rel="stylesheet" href="./view/css/style_login.css"> -->
     <style>
      
     </style>
 </head>
 
 <body>
-    <!-- header section starts -->
     <!-- header section starts -->
     <!-- <marquee behavior="" direction="">
         hello
@@ -42,10 +44,6 @@
                                 echo '<a href="' . $linkdm . '">' . $dm_name . '</a>';
                             }
                             ?>
-
-                            <!-- <li><a href="">Tiểu Thuyết Hiện Đại</a></li>
-                            <li><a href="">Tiểu Thuyết Lịch Sử</a></li>
-                            <li><a href="">Tiểu Thuyết Khoa Học Viễn Tưởng</a></li> -->
                             <!-- Thêm các danh mục sách khác tùy theo nhu cầu -->
                         </ul>
                     </div>
@@ -60,7 +58,7 @@
         <nav class="navbar">
 
             <nav class="navbar">
-                <a class="active" href="index.php"><i class="fa-solid fa-house fa-lg"></i> Trang Chủ</a>
+                <a class="active" href="index.php?act=index.php"><i class="fa-solid fa-house fa-lg"></i> Trang Chủ</a>
                 <a href="index.php"><i class="fa-solid fa-book fa-lg"></i>  Sản Phẩm</a>
                 <a href="index.php"><i class="fa-solid fa-blog fa-lg"></i>  Blog</a>
                 <!-- <a href="#menu">menu</a>
@@ -81,8 +79,8 @@
         <div class="user-menu">
             <button id="user-button">Đăng nhập/Đăng ký</button>
             <div class="user-links" id="user-links">
-                <a href="">Đăng nhập</a> <!--Chèn link dẫn đến file đăng nhập vào đây -->
-                <a href="#">Đăng ký</a> <!--Chèn link dẫn đến file đăng ký vào đây -->
+                <a  href="index.php?act=dangnhap">Đăng nhập</a> <!--Chèn link dẫn đến file đăng nhập vào đây -->
+                <a  href="index.php?act=dangky">Đăng ký</a> <!--Chèn link dẫn đến file đăng ký vào đây -->
             </div>
         </div>
     </header>
