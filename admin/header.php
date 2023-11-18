@@ -33,7 +33,7 @@
         <a href="index.php?act=listsp"> Quản lý sản phẩm</a>
 
         <div class="adm">
-            <a href="#">Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></a>
+            <a href="index.php?act=dangxuat">Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></a>
             <div class="">
 
             <!-- <i class="fa-solid fa-user fa-lg"></i> -->

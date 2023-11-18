@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +77,20 @@
             <a href="index.php?act=spyt" class="fas fa-heart"></a>
             <a href="#" class="fas fa-shopping-cart"></a>
         </div>
-
+        <?php
+        // include 'model/taikhoan.php';
+        if (isset($_SESSION['user'])) {
+            extract($_SESSION['user']);
+            echo ' <div class="user-menu">
+            <button id="user-button">Đăng nhập/Đăng ký</button>
+            <div class="user-links" id="user-links">
+                <a  href="index.php?act=dangnhap">Thông tin tài khoản</a> <!--Chèn link dẫn đến file đăng nhập vào đây -->
+                <a  href="index.php?act=dangky">Đăng ký</a> <!--Chèn link dẫn đến file đăng ký vào đây -->
+                <a  href="index.php?act=dangxuat">Đăng xuất</a>
+            </div>
+        </div>';
+        } else {
+       ?>
         <div class="user-menu">
             <button id="user-button">Đăng nhập/Đăng ký</button>
             <div class="user-links" id="user-links">
@@ -84,6 +99,8 @@
                 <a  href="index.php?act=dangxuat">Đăng xuất</a>
             </div>
         </div>
+   <?php }
+    ?>
     </header>
 
     <!-- header section ends -->
@@ -118,23 +135,13 @@
             </div> -->
 
                 <?php
-                // include(".../model/sanpham.php");
                 include "global.php";
-
                 $spnew = loadall_sanpham_home();
-                $i = 0;
                 foreach ($spnew as $sp) {
-                    $i++;
                     extract($sp);
-
                     $linksp = "index.php?act=sanphamct&idsp=" . $sp_id;
                     $hinh = $img_path . $sp_img;
-                    if (($i == 2) || ($i == 5) || ($i = 8) || ($i = 11)) {
-                        $mr = "";
-                    } else {
-                        $mr = "mr";
-                    }
-                    echo '<div class="swiper-slide slider ' . $mr . '">
+                    echo '<div class="swiper-slide slider">
                             <div class="content">
                                 <span>our special diesh</span>
                                 <h3>    <a href="' . $linksp . '">' . $sp_name . '</a></h3>
@@ -143,27 +150,16 @@
                             </div>
                             <div class="image">
                             <img src="' . $hinh . '" alt="">
-
                             </div>
-                                                    
                         </div>';
-
                 }
                 ?>
-
                 <!-- </div> -->
-
-
                 <!-- <div class="swiper-slide slider">
-            
         </div> -->
-
             </div>
-
             <!-- <div class="swiper-pagination"></div> -->
-
         </div>
-
     </section>
 
     <!-- home section ends -->

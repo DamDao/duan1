@@ -6,8 +6,8 @@
     <div class="box-container">
         <?php
         // include("../model/sanpham.php");
-        $dstop10 = loadall_sanpham_top10();
-        foreach ($dstop10 as $sp) {
+        $dsspyt = loadall_spyt();
+        foreach ($dsspyt as $sp) {
             extract($sp);
             $linksp = "index.php?act=sanphamct&idsp=" . $sp_id;
             $sp_img = $img_path . $sp_img;

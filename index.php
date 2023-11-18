@@ -18,7 +18,8 @@ if (!isset($_SESSION['my_cart']))
 
 $spnew = loadall_sanpham_home();
 $dsdm = loadall_danhmuc();
-$dstop10 = loadall_sanpham_top10();
+$dsspyt = loadall_spyt();
+$onespyt = loadone_spyt();
 if (isset($_GET['act']) && ($_GET['act'] != 0)) {
     $act = $_GET['act'];
     switch ($act) {
@@ -62,10 +63,10 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
                 $check_user = check_user($user, $pass);
-                if (is_array($check_user) && ($check_user['role'] == 0)) {
+                if (is_array($check_user) && ($check_user['tk_role'] == 0)) {
                     $_SESSION['user'] = $check_user;
                     header('Location:index.php');
-                } else if (is_array($check_user) && ($check_user['role'] != 0)) {
+                } else if (is_array($check_user) && ($check_user['tk_role'] != 0)) {
                     header('Location:admin/index.php');
                 } else {
                     $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra lại user or pass";

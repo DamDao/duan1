@@ -431,6 +431,7 @@ header .icons #menu-bars {
     font-weight: bolder;
     margin-right: 1rem;
     font-size: 2.5rem;
+    display: block;
 }
 
 .dishes .box-container .box img {
@@ -446,7 +447,7 @@ header .icons #menu-bars {
 }
 
 .about .row .image img {
-    width: 100%;
+    width: 76%;
 }
 
 .about .row .content {

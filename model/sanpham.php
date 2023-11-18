@@ -8,10 +8,15 @@
         $sql = "DELETE FROM san_pham WHERE sp_id=".$id;
         pdo_execute($sql);
     }
-    function loadall_sanpham_top10(){
+    function loadall_spyt(){
         $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY sp_luotxem DESC LIMIT 0,8";
         $listsanpham = pdo_query($sql);
         return $listsanpham;
+    }
+    function loadone_spyt(){
+        $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY sp_luotxem DESC LIMIT 1";
+        $onesanpham = pdo_query($sql);
+        return $onesanpham;
     }
     function loadall_sanpham_home(){
         $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY sp_id DESC LIMIT 0,9";
