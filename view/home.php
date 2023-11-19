@@ -2,8 +2,8 @@
 
 <section class="dishes" id="dishes">
 
-    <h3 class="sub-heading"> SẢN PHẨM YÊU THÍCH </h3>
-    <h1 class="heading"> ... </h1>
+    <h3 class="sub-heading"> Top Sản Phẩm </h3>
+    <h1 class="heading">  </h1>
 
     <div class="box-container">
         <?php
@@ -88,7 +88,7 @@
 <setion class="menu" id="menu">
 
     <h3 class="sub-heading">TẤT CẢ SẢN PHẨM </h3>
-    <h1 class="heading"> ... </h1>
+    <h1 class="heading">  </h1>
 
     <div class="box-container">
         <?php
@@ -116,7 +116,7 @@
                             <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
                                 sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
                             <a href="#" class="btn">Add to cart</a>
-                            <span class="price">' . $sp_price . '</span>
+                            <span class="price">$' . $sp_price . '</span>
                         </div>
                     </div>';
         }

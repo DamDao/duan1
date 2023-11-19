@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./view/css/style2.css">
-    <!-- <link rel="stylesheet" href="./view/css/style.css"> -->
+    <link rel="stylesheet" href="./view/css/spct.css">
+    <link rel="stylesheet" href="./view/css/fo.css">
     <link rel="stylesheet" href="./view/css/style_regis.css">
     <!-- <link rel="stylesheet" href="./view/css/style_login.css"> -->
     <style>

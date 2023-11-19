@@ -38,6 +38,17 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             $tendm = load_ten_dm($iddm);
             include "view/sanpham.php";
             break;
+        // case 'sanphamct':
+        //     if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
+        //         $id = $_GET['idsp'];
+        //         $onesp = loadone_sanpham($id);
+        //         extract($onesp);
+        //         $sp_cung_loai = load_sanpham_cungloai($id, $dm_id);
+        //         include "view/sanphamct.php";
+        //     } else {
+        //         include "view/home.php";
+        //     }
+        //     break;
         case 'spyt':
 
             include "view/spyt.php";
@@ -73,14 +84,13 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     # code...
                 }
             }
-
             include "view/regis_login/login.php";
 
             break;
-            case 'dangxuat':
-                session_destroy();
-                header('Location:index.php');
-                break;
+        case 'dangxuat':
+            session_destroy();
+            header('Location:index.php');
+            break;
 
         default:
             include "view/home.php";
