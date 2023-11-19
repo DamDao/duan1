@@ -61,10 +61,16 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                 $pass = $_POST['pass'];
                 $tel = $_POST['tel'];
                 $address = $_POST['address'];
-                $check_user = check_user($user, $pass);
+                if ($check_user = check_user($user, $pass)) {
+                    echo "Tài khoản đã tồn tại";
+                }
+                else {
+                    
+                
                 insert_taikhoan($user, $pass, $email, $tel, $address);
                 $thongbao = "Đã đăng ký thành công vui lòng đăng nhập để thực hiện các chức năng";
                 header("Location:index.php");
+                }
             }
             include "view/regis_login/register.php";
             break;
