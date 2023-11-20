@@ -42,7 +42,7 @@
     </div>
 
     <div class="footer-logo">
-        <img src="your-logo.png" alt="Your Logo">
+        <img src="upload/mau-logo-nha-sach.jpg" alt="">
     </div>
 
     <div class="footer-text">

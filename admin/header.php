@@ -31,6 +31,7 @@
         <a href="index.php"> Trang Chủ</a>
         <a href="index.php?act=listdm"> Quản lý danh mục</a>
         <a href="index.php?act=listsp"> Quản lý sản phẩm</a>
+        <a href="index.php?act=dskh">Khách hàng</a>
 
         <div class="adm">
             <a href="index.php?act=dangxuat">Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></a>

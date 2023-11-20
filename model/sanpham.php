@@ -1,6 +1,6 @@
 <?php
-    function insert_sanpham($tenloai,$giasp,$hinh,$mota,$iddm){
-        $sql = "INSERT INTO san_pham(sp_name,sp_price,sp_img,sp_mota,dm_id) VALUES('$tenloai','$giasp','$hinh','$mota','$iddm')";
+    function insert_sanpham($tenloai,$giasp,$hinh,$tacgia,$mota,$iddm){
+        $sql = "INSERT INTO san_pham(sp_name,sp_price,sp_img,sp_tacgia,sp_mota,dm_id) VALUES('$tenloai','$giasp','$hinh', '$tacgia','$mota','$iddm')";
         pdo_execute($sql);
     }
 
@@ -41,17 +41,17 @@
         $sanpham = pdo_query_one($sql);
         return $sanpham;
     }
-    function load_sanpham_cungloai($id,$iddm){
+    function load_spcl($id,$dm_id){
         // $iddm = $_GET['id'];
-        $sql = "SELECT * FROM san_pham WHERE dm_id='$iddm' AND sp_id <>".$id;
+        $sql = "SELECT * FROM san_pham WHERE dm_id='$dm_id' AND sp_id <>".$id;
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }
-    function update_sanpham($id, $tensp, $giasp, $hinh, $mota, $iddm){
+    function update_sanpham($id, $tensp, $giasp, $hinh, $tacgia, $mota, $iddm){
         if ($hinh !='') {
-            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp', `sp_img`= '$hinh', `sp_mota`= '$mota',`dm_id` = '$iddm' WHERE `sp_id`=".$id;           
+            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp', `sp_img`= '$hinh', `sp_tacgia`= '$tacgia', `sp_mota`= '$mota',`dm_id` = '$iddm' WHERE `sp_id`=".$id;           
         }else {
-            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp', `sp_mota`= '$mota', `dm_id`= '$iddm' WHERE `sp_id`=" .$id;           
+            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp',`sp_tacgia`= '$tacgia', `sp_mota`= '$mota', `dm_id`= '$iddm' WHERE `sp_id`=" .$id;           
         }
         // echo $sql;die;
          pdo_execute($sql);

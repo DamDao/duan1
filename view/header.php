@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./view/css/style2.css">
     <link rel="stylesheet" href="./view/css/spct.css">
     <link rel="stylesheet" href="./view/css/fo.css">
-    <link rel="stylesheet" href="./view/css/style_regis.css">
+    <link rel="stylesheet" href="./view/css/account.css">
     <!-- <link rel="stylesheet" href="./view/css/style_login.css"> -->
     <style>
      
@@ -62,7 +62,7 @@
 
             <nav class="navbar">
                 <a class="active" href="index.php?act=index.php"><i class="fa-solid fa-house fa-lg"></i> Trang Chủ</a>
-                <a href="index.php"><i class="fa-solid fa-book fa-lg"></i>  Sản Phẩm</a>
+                <a href="index.php?act=sanpham"><i class="fa-solid fa-book fa-lg"></i>  Sản Phẩm</a>
                 <a href="index.php"><i class="fa-solid fa-blog fa-lg"></i>  Blog</a>
                 <!-- <a href="#menu">menu</a>
                 <a href="#review">review</a>

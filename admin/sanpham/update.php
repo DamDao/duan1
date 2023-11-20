@@ -40,9 +40,13 @@ if (is_file($hinhpath)) {
                 <input type="text" name="giasp" required value="<?php echo $sp_price ?>">
             </div>
             <div class=" mb10">
-                Hình Phẩm <br>
+                Ảnh Phẩm <br>
                 <input type="file" name="hinh" value="<?php ?>">
                 <?php echo $hinh ?>
+            </div>
+            <div class=" mb10">
+               Tác Giả <br>
+                <input type="text" name="tacgia" value="<?php echo $sp_tacgia ?>">
             </div>
             <div class=" mb10">
                 Mô tả Sản Phẩm <br>

@@ -38,17 +38,17 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             $tendm = load_ten_dm($iddm);
             include "view/sanpham.php";
             break;
-        // case 'sanphamct':
-        //     if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
-        //         $id = $_GET['idsp'];
-        //         $onesp = loadone_sanpham($id);
-        //         extract($onesp);
-        //         $sp_cung_loai = load_sanpham_cungloai($id, $dm_id);
-        //         include "view/sanphamct.php";
-        //     } else {
-        //         include "view/home.php";
-        //     }
-        //     break;
+        case 'sanphamct':
+            if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
+                $id = $_GET['idsp'];
+                $onesp = loadone_sanpham($id);
+                extract($onesp);
+                $spcl = load_spcl($id, $dm_id);
+                include "view/sanphamct.php";
+            } else {
+                include "view/home.php";
+            }
+            break;
         case 'spyt':
 
             include "view/spyt.php";
@@ -62,17 +62,14 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                 $tel = $_POST['tel'];
                 $address = $_POST['address'];
                 if ($check_user = check_user($user, $pass)) {
-                    echo "Tài khoản đã tồn tại";
-                }
-                else {
-                    
-                
-                insert_taikhoan($user, $pass, $email, $tel, $address);
-                $thongbao = "Đã đăng ký thành công vui lòng đăng nhập để thực hiện các chức năng";
-                header("Location:index.php");
+                    $thongbao = "Tài khoản đã tồn tại";
+                } else {
+                    insert_taikhoan($user, $pass, $email, $tel, $address);
+                    $thongbao = "Đã đăng ký thành công vui lòng đăng nhập để thực hiện các chức năng";
+                    header("Location:index.php?act=index.php");
                 }
             }
-            include "view/regis_login/register.php";
+            include "view/account/register.php";
             break;
 
         case 'dangnhap':
@@ -90,8 +87,21 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     # code...
                 }
             }
-            include "view/regis_login/login.php";
-
+            include "view/account/login.php";
+            break;
+        case 'update_act':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $tel = $_POST['tel'];
+                $id = $_POST['id'];
+                update_taikhoan($tk_id, $user, $pass, $email, $address, $tel);
+                $_SESSION['user'] = check_user($user, $pass);
+                header("Location:index.php?act=dangnhap");
+            }
+            include "view/account/update_act.php";
             break;
         case 'dangxuat':
             session_destroy();

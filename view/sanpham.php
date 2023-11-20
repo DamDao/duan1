@@ -5,7 +5,6 @@
 <!-- about section starts -->
 
 
-
 <!-- about section ends -->
 
 <!-- menu setions starts -->
@@ -56,23 +55,27 @@
 <!-- menu setions ends -->
 <section class="about" id="about">
 
-    <h3 class="sub-heading"> about us </h3>
-    <h1 class="heading"> why choose us? </h1>
+    <h3 class="sub-heading"> Sản Phẩm Được Yêu Thích Nhất </h3>
+    <h1 class="heading"> </h1>
 
     <div class="row">
-
-        <div class="image">
-            <img src="image/home-img-1.jpg" alt="">
-        </div>
-
+        <?php
+        $onespyt = loadone_spyt();
+        foreach ($onespyt as $sp) {
+            extract($sp);
+            $linksp = "index.php?act=sanphamct&idsp=" . $sp_id;
+            $sp_img = $img_path . $sp_img;
+            echo '
+                <div class="image">
+                    <a href="' . $linksp . '"><img src="' . $sp_img . '" alt=""></a>
+                </div>';
+        }
+        ?>
         <div class="content">
-            <h3>best food in the country</h3>
-            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Sit natus dolor cumque?</p>
-            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
+           <?php
+            echo  "<h3> $sp_name</h3>
+            <p>$sp_mota</p>";
+                 ?>
             <div class="icons-container">
                 <div class="icons">
                     <i class="fas fa-shipping-fast"></i>
@@ -93,6 +96,7 @@
     </div>
 
 </section>
+
 <!-- review section starts -->
 
 <!-- menu setions starts -->

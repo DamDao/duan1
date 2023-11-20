@@ -29,6 +29,10 @@
                         <input type="file" name="hinh" >
                     </div>
                     <div class="row mb10">
+                        Tác Giả Sản Phẩm <br>
+                        <input type="tex" name="tacgia" >
+                    </div>
+                    <div class="row mb10">
                         Mô tả Sản Phẩm <br>
                         <textarea name="mota" cols="30" rows="10"></textarea>
                     </div>

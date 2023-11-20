@@ -133,107 +133,112 @@
 
 <!-- <section class="review" id="review"> -->
 
-<h3 class="sub-heading"> Customer's review </h3>
-<h1 class="heading"> What they say </h1>
+<h3 class="sub-heading"> Đánh Giá Của Khách Hàng</h3>
+<h1 class="heading"> Họ Nói Gì? </h1>
 
-<!-- <div class="swiper mySwiper review-slider"> -->
-<div class="swiper-wrapper wrapper">
-    <div class="swiper-slide slide">
-        <i class="fas fa-quote-right"></i>
-        <div class="user">
-            <img src="image/home-img-1.jpg" alt="">
-            <div class="user-info">
-                <h3>John deo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i> <!--Ngôi sao-->
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+<div class="swiper mySwiper review-slider">
+    <div class="swiper-wrapper wrapper">
+        <div class="swiper-slide slide">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="image/home-img-1.jpg" alt="">
+                <div class="user-info">
+                    <h3>John deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i> <!--Ngôi sao-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
                 </div>
             </div>
+            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
         </div>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-    </div>
-    <div class="swiper-slide slide">
-        <i class="fas fa-quote-right"></i>
-        <div class="user">
-            <img src="image/home-img-2.jpg" alt="">
-            <div class="user-info">
-                <h3>John desh</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i> <!--Ngôi sao-->
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+        <div class="swiper-slide slide">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="image/home-img-2.jpg" alt="">
+                <div class="user-info">
+                    <h3>John desh</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i> <!--Ngôi sao-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
                 </div>
             </div>
+            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
         </div>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-    </div>
-    <div class="swiper-slide slide">
-        <i class="fas fa-quote-right"></i>
-        <div class="user">
-            <img src="image/home-img-3.jpg" alt="">
-            <div class="user-info">
-                <h3>messi leo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i> <!--Ngôi sao-->
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+        <div class="swiper-slide slide">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="image/home-img-3.jpg" alt="">
+                <div class="user-info">
+                    <h3>messi leo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i> <!--Ngôi sao-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
                 </div>
             </div>
+            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
         </div>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-    </div>
-    <div class="swiper-slide slide">
-        <i class="fas fa-quote-right"></i>
-        <div class="user">
-            <img src="image/home-img-3.jpg" alt="">
-            <div class="user-info">
-                <h3>messi leo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i> <!--Ngôi sao-->
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+        <div class="swiper-slide slide">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="image/home-img-3.jpg" alt="">
+                <div class="user-info">
+                    <h3>messi leo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i> <!--Ngôi sao-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
                 </div>
             </div>
+            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
         </div>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-    </div>
-    <div class="swiper-slide slide">
-        <i class="fas fa-quote-right"></i>
-        <div class="user">
-            <img src="image/home-img-2.jpg" alt="">
-            <div class="user-info">
-                <h3>messi leo</h3>
-                <div class="stars">
-                    <i class="fas fa-star"></i> <!--Ngôi sao-->
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+        <div class="swiper-slide slide">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="image/home-img-2.jpg" alt="">
+                <div class="user-info">
+                    <h3>messi leo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i> <!--Ngôi sao-->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
                 </div>
             </div>
+            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
         </div>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
     </div>
 </div>
+
+<!-- </section> -->
+
+<!-- review section ends -->
 <!-- </div> -->
 
 <!-- </section> -->

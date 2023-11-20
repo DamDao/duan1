@@ -3,6 +3,7 @@
      color: #fff;
      padding: 50px 0;
      text-align: center;
+     margin-top: 150px;
  }
 
  .footer-container {
@@ -94,7 +95,7 @@
  }
 
  .footer-logo img {
-     width: 100px;
+     width: 200px;
      /* Adjust the size based on your logo */
  }
 

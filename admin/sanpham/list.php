@@ -25,6 +25,7 @@
                     <th>HÌNH SẢN PHẨM</th>
                     <th>TÊN SẢN PHẨM</th>
                     <th>GIÁ SẢN PHẨM</th>
+                    <th>TÁC GIẢ</th>
                     <th>LƯỢT XEM</th>
                     <th>THAO TÁC</th>
                 </tr>
@@ -47,6 +48,7 @@
                     <td>' . $hinh . '</td>
                     <td>' . $sp_name . '</td>
                     <td>' . $sp_price . '</td>
+                    <td>' . $sp_tacgia . '</td>
                     <td>' . $sp_luotxem . '</td>
                     
                     ';        
