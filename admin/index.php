@@ -53,7 +53,7 @@ if (isset($_GET['act'])) {
             } else {
                 $thongbaor = 'tên rỗng';
             }
-            $sql = "SELECT * FROM danhmuc ORDER BY id DESC";
+            // $sql = "SELECT * FROM danhmuc ORDER BY id DESC";
             $listdanhmuc = loadall_danhmuc();
             include "danhmuc/list.php";
             break;

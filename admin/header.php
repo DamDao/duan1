@@ -16,10 +16,10 @@
 
     <div class="header">
         <p>TRANG QUẢN TRỊ BOOK STORE <i class="fa-solid fa-book-open fa-fade fa-xl"></i></p>
-        <marquee behavior="scroll" direction="left" scrollamount="5">
+        <!-- <marquee behavior="scroll" direction="left" scrollamount="5">
             Xin chào admin chúc bạn 1 ngày tốt lành <i class="fa-regular fa-face-smile fa-xl"
                 style="color: #ffffff;"></i>
-        </marquee>
+        </marquee> -->
         <a href="#">Xin chào admin</a>
     </div>
 

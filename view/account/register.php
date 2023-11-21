@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" name="email" >
+                <input type="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="phone">Số Điện Thoại:</label>

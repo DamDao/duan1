@@ -48,7 +48,7 @@
                     <P>THÊM GIỎ HÀNG</P>
                 </button>
                 <button class="muangay">
-                    <P>MUA NGAY</P>
+                   <a href="index.php?act=bill">MUA NGAY</a> 
                 </button>
             </div>
 
@@ -102,16 +102,27 @@
         <a href="index.php?act=sanpham">Sản phẩm khác</a>
     </div>
 </div>
-<form action="" class="frm_bl">
-    <input type="text" name="noidung" id="" placeholder="Nhập nội dung bình luận">
-    <input type="submit" name="gui_bl" value="Gửi bình luận" id="">';
 
-</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#binhluan").load("view/binhluan/binhluanform.php", { idpro: <?php echo $id ?> });
+    });
+</script>
+
+<div class="row" id="binhluan">
+
+</div>
 
 <style>
+    .box_bl{
+        margin-top: 22px;
+    }
     .frm_bl {
-        text-align: center;
-        margin-top: 66px;
+    text-align: center;
+    font-size: medium;
+    margin-top: 30px;
+    border-top: 1px solid;
     }
 
     .spk a {

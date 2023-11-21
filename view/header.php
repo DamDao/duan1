@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./view/css/style2.css">
     <link rel="stylesheet" href="./view/css/spct.css">
+    <link rel="stylesheet" href="./view/css/cart.css">
     <link rel="stylesheet" href="./view/css/fo.css">
     <link rel="stylesheet" href="./view/css/account.css">
     <!-- <link rel="stylesheet" href="./view/css/style_login.css"> -->
@@ -63,7 +64,7 @@
             <nav class="navbar">
                 <a class="active" href="index.php?act=index.php"><i class="fa-solid fa-house fa-lg"></i> Trang Chủ</a>
                 <a href="index.php?act=sanpham"><i class="fa-solid fa-book fa-lg"></i>  Sản Phẩm</a>
-                <a href="index.php"><i class="fa-solid fa-blog fa-lg"></i>  Blog</a>
+                <!-- <a href="index.php"><i class="fa-solid fa-blog fa-lg"></i>  Blog</a> -->
                 <!-- <a href="#menu">menu</a>
                 <a href="#review">review</a>
                 <a href="#order">order</a> -->
@@ -76,14 +77,14 @@
             <i class="fas fa-bars" id="menu-bars"></i>
             <i class="fas fa-search" id="search-icon"></i>
             <a href="index.php?act=spyt" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="index.php?act=addtocart" class="fas fa-shopping-cart"></a>
         </div>
         <?php
         // include 'model/taikhoan.php';
         if (isset($_SESSION['user'])) {
             extract($_SESSION['user']);
             echo ' <div class="user-menu">
-            <button id="user-button">Đăng nhập/Đăng ký</button>
+            <button id="user-button">User: '.$tk_name.'</button>
             <div class="user-links" id="user-links">
                 <a  href="index.php?act=dangnhap">Thông tin tài khoản</a> <!--Chèn link dẫn đến file đăng nhập vào đây -->
                 <a  href="index.php?act=dangky">Đăng ký</a> <!--Chèn link dẫn đến file đăng ký vào đây -->
@@ -91,17 +92,17 @@
             </div>
         </div>';
         } else {
-       ?>
-        <div class="user-menu">
+            echo '<div class="user-menu">
             <button id="user-button">Đăng nhập/Đăng ký</button>
             <div class="user-links" id="user-links">
                 <a  href="index.php?act=dangnhap">Đăng nhập</a> <!--Chèn link dẫn đến file đăng nhập vào đây -->
                 <a  href="index.php?act=dangky">Đăng ký</a> <!--Chèn link dẫn đến file đăng ký vào đây -->
                 <a  href="index.php?act=dangxuat">Đăng xuất</a>
             </div>
-        </div>
-   <?php }
-    ?>
+        </div>';
+       }
+       ?>
+        
     </header>
 
     <!-- header section ends -->
@@ -144,10 +145,10 @@
                     $hinh = $img_path . $sp_img;
                     echo '<div class="swiper-slide slider">
                             <div class="content">
-                                <span>our special diesh</span>
+                              
                                 <h3>    <a href="' . $linksp . '">' . $sp_name . '</a></h3>
-                                <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
-                                <a href="#" class="btn">order now</a>
+                                <p>'.$sp_mota.'</p>
+                                <a href="#" class="btn">Mua ngay</a>
                             </div>
                             <div class="image">
                             <img src="' . $hinh . '" alt="">

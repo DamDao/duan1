@@ -1,7 +1,7 @@
 <section class="dishes" id="dishes">
 
     <h3 class="sub-heading"> SẢN PHẨM YÊU THÍCH </h3>
-    <h1 class="heading"> ... </h1>
+    <h1 class="heading">  </h1>
 
     <div class="box-container">
         <?php

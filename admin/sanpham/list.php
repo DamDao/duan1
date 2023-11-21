@@ -17,11 +17,14 @@
             <input type="submit" name="listok" value="Go">
         </div>
     </form>
+    <div class="row mb10" style="text-align: end;text-decoration: none;">
+        <a style="text-decoration: none;" href="index.php?act=addsp">Nhập Thêm</a>
+    </div>
     <div class="row frm_content">
         <div class="frm_dm">
             <table>
                 <tr>
-                    <th>MÃ LOẠI</th>
+                    <th>THỂ LOẠI</th>
                     <th>HÌNH SẢN PHẨM</th>
                     <th>TÊN SẢN PHẨM</th>
                     <th>GIÁ SẢN PHẨM</th>
@@ -30,8 +33,6 @@
                     <th>THAO TÁC</th>
                 </tr>
                 <?php
-                // $list_onedm = loadall_danhmuc();
-                // extract($listdanhmuc);
                 foreach ($listsanpham as $sanpham) {
                     extract($sanpham);
                     $editsp = "index.php?act=editsp&id=".$sp_id;
@@ -42,16 +43,21 @@
                     } else {
                         $hinh = "Ko có hình";
                     }
-                    echo
-                        '<tr>
-                    <td>' . $sp_id . '</td>
-                    <td>' . $hinh . '</td>
-                    <td>' . $sp_name . '</td>
-                    <td>' . $sp_price . '</td>
-                    <td>' . $sp_tacgia . '</td>
-                    <td>' . $sp_luotxem . '</td>
-                    
-                    ';        
+                    foreach ($listdanhmuc as $dm) {
+                        extract($dm);
+                        if ($dm['dm_id'] == $sanpham['dm_id']) {
+                        echo '<tr>
+                                <td>'.$dm_name.'</td>';
+                        }
+                    }
+                       echo
+                            '<td>' . $hinh . '</td>
+                            <td>' . $sp_name . '</td>
+                            <td>' . $sp_price . '</td>
+                            <td>' . $sp_tacgia . '</td>
+                            <td>' . $sp_luotxem . '</td>
+                            
+                            ';        
                 ?>
                  <td> <a href="<?php echo $editsp ?>"><i class="fa-regular fa-pen-to-square fa-fade fa-xl" style="color: #20365a;"></i></a> | <a  onclick="return confirm('Bạn có muốn xóa ko')" href="<?php echo $deletesp ?>"> <i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>
                 </tr>
@@ -59,7 +65,6 @@
             </table>
         </div>
         <div class="row mb10">
-    
             <a href="index.php?act=addsp"><input class="add_css" type="button" name="" id="" value="Nhập Thêm"></a>
         </div>
     </div>

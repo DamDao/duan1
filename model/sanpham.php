@@ -35,6 +35,7 @@
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }
+
     function loadone_sanpham($id){
         // $iddm = $_GET['id'];
         $sql = "SELECT * FROM san_pham WHERE sp_id=".$id;

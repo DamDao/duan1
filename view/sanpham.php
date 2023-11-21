@@ -11,7 +11,7 @@
 
 <setion class="menu" id="menu">
 
-    <h3 class="sub-heading"> Danh Sách </h3>
+    <h3 class="sub-heading"> DANH SÁCH SẢN PHẨM </h3>
     <h1 class="heading">
         <?php echo $tendm ?>
     </h1>
@@ -24,8 +24,8 @@
             $sp_img = $img_path . $sp_img;
             echo ' <div class="box">
                         <div class="image img2">
-                            <img src="' . $sp_img . '" alt="">
-                            <a href="#" class="fas fa-heart"></a> <!--Trái tim-->
+                            <a href="' . $linksp . '"><img src="' . $sp_img . '" alt=""></a>
+                            <a href="" class="fas fa-heart"></a> <!--Trái tim-->
                         </div>
 
                         <div class="content">
@@ -38,15 +38,26 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
-                            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
                                 <span class="price">' . $sp_price . '</span>
-                            <a href="#" class="btn">Add to cart</a>
+                                <form action="?act=addtocart" method="POST">
+                                <input type="hidden" name="idsp" value="'. $sp_id.'">
+                                <input type="hidden" name="namesp" value="'. $sp_name.'">
+                                <input type="hidden" name="img" value="'. $sp_img.'">
+                                <input type="hidden" name="price" value="'. $sp_price.'">
+                                <button type="submit" name="addtocart" class="btn btn-success ">Thêm vào giỏ hàng</button>
+                                </form>
                         </div>
                     </div>';
         }
         ?>
 
+        <!-- <form action="index.php?act=add_cart" method="POST">
+    <input type="hidden" name="id" id="" value="'.$sp_id.'">
+    <input type="hidden" name="name" id="" value="'.$sp_name.'">
+    <input type="hidden" name="img" id="" value="'.$sp_img.'">
+    <input type="hidden" name="price" id="" value="'.$sp_price.'">
+    <a href="#" class="btn"><input type="submit" name="add_cart" id="" value="Thêm vào giỏ hàng"></a>
+</form> -->
 
 
     </div>
@@ -55,7 +66,7 @@
 <!-- menu setions ends -->
 <section class="about" id="about">
 
-    <h3 class="sub-heading"> Sản Phẩm Được Yêu Thích Nhất </h3>
+    <h3 class="sub-heading"> SẢN PHẨM ĐƯỢC YÊU THÍCH NHẤT </h3>
     <h1 class="heading"> </h1>
 
     <div class="row">
@@ -72,10 +83,11 @@
         }
         ?>
         <div class="content">
-           <?php
-            echo  "<h3> $sp_name</h3>
+            <?php
+            echo "<h3> $sp_name</h3>
+                    <p>Tác giả: $sp_tacgia</p>
             <p>$sp_mota</p>";
-                 ?>
+            ?>
             <div class="icons-container">
                 <div class="icons">
                     <i class="fas fa-shipping-fast"></i>
@@ -90,7 +102,7 @@
                     <span>24/7 service</span>
                 </div>
             </div>
-            <a href="#" class="btn">Learn more</a>
+            <a href="<?= $linksp ?>" class="btn">Xem Chi Tiết</a>
         </div>
 
     </div>
@@ -131,7 +143,7 @@
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
                             <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
                                 sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-                            <a href="#" class="btn">Add to cart</a>
+                            <a href="#" class="btn">Thêm giỏ hàng</a>
                             <span class="price">' . $sp_price . '</span>
                         </div>
                     </div>';
