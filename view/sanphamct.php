@@ -3,52 +3,53 @@
     extract($onesp);
     $sp_img = $img_path . $sp_img;
     ?>
-    <div class="product-content ">
+    <div>
+        <?php echo ' <form action="?act=addtocart" method="POST" class="product-content ">
         <div class="product-content-left ">
             <div class="product-content-left-big-img">
-                <?= ' <img src="' . $sp_img . '" alt="">'; ?>
+                <img src="' . $sp_img . '" alt="">; 
             </div>
             <div class="product-content-left-small-img">
-                <?= '<img src= ' . $sp_img . ' alt="">' ?>
-                <?= '<img src= ' . $sp_img . ' alt="">' ?>
-                <?= '<img src= ' . $sp_img . ' alt="">' ?>
+                <img src= ' . $sp_img . ' alt="">
+                <img src= ' . $sp_img . ' alt="">
+                <img src= ' . $sp_img . ' alt="">
             </div>
         </div>
         <div class="product-content-right">
-
             <div class="name">
                 <h1>
-                    <?= $sp_name ?>
+                    ' . $sp_name . '
                 </h1>
                 <p class="NXB1">NHÀ XUẤT BẢN : </p>
                 <p class="NXB2">NXB Lao Động</p>
                 <p class="TG1">TÁC GIẢ :</p>
                 <p class="TG2">
-                    <?= $sp_tacgia ?>
+                    '.$sp_tacgia.' 
                 </p>
 
             </div>
             <div class="price">
                 <p>GIÁ BÁN :
-                    <?= '$' . $sp_price ?><sup></sup>
+                    ' . $sp_price . '<sup></sup>
                 </p>
             </div>
             <div class="quantyti">
                 <p style="font-weight: bold;">SỐ LƯỢNG : </p>
-                <button class="minus-btn" onclick="handleMinus()"><i class="fa-solid fa-minus"></i></button>
                 <input type="text" name="amount" id="amount" value="1">
-                <button class="plus-btn" onclick="handlePlus()"><i class="fa-solid fa-plus"></i></button>
+
+                <input type="hidden" name="idsp" value="' . $sp_id . '">
+                <input type="hidden" name="namesp" value="' . $sp_name . '">
+                <input type="hidden" name="img" value="' . $sp_img . '">
+                <input type="hidden" name="price" value="' . $sp_price . '">
             </div>
             <div class="tinhtrang">
                 <p class="tinhtrang1">Tình Trạng:</p>
                 <p class="tinhtrang2">còn hàng </p>
             </div>
             <div class="dathang">
-                <button class="themgiohang">
-                    <P>THÊM GIỎ HÀNG</P>
-                </button>
-                <button class="muangay">
-                   <a href="index.php?act=bill">MUA NGAY</a> 
+                <button type="submit" name="addtocart" class="btn btn-success ">Thêm giỏ hàng</button>
+                <button class="muangay ">
+                    <a href="index.php?act=bill">MUA NGAY</a>
                 </button>
             </div>
 
@@ -67,12 +68,12 @@
             <div class="noidung">
                 <p class="nd1">Nội Dung<br></p>
                 <P class="nd2">
-                    <?= $sp_mota ?>
+                    "' . $sp_mota . '"
                 </P>
             </div>
         </div>
+        </from>'; ?>
     </div>
-
 </div>
 <div class="sp_cungloai">
     <div class="tietl_cl">
@@ -115,14 +116,15 @@
 </div>
 
 <style>
-    .box_bl{
+    .box_bl {
         margin-top: 22px;
     }
+
     .frm_bl {
-    text-align: center;
-    font-size: medium;
-    margin-top: 30px;
-    border-top: 1px solid;
+        text-align: center;
+        font-size: medium;
+        margin-top: 30px;
+        border-top: 1px solid;
     }
 
     .spk a {
@@ -281,7 +283,6 @@
         height: 40px;
         margin: 20px 20px;
         border-radius: 15px;
-        border: 1px red solid;
 
     }
 
@@ -289,13 +290,14 @@
         font-size: 15px;
     }
 
-    .muangay {
-        color: #fff;
-        background-color: #C9420D;
+    .muangay{
+        background-color: var(--blaack);
     }
-
+    .muangay a{
+        color: #FFF;
+    }
     .muangay:hover {
-        background-color: rgb(154, 43, 43);
+        background-color: var(--green);
     }
 
     .themgiohang:hover {

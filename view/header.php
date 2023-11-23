@@ -148,7 +148,7 @@
                               
                                 <h3>    <a href="' . $linksp . '">' . $sp_name . '</a></h3>
                                 <p>'.$sp_mota.'</p>
-                                <a href="#" class="btn">Mua ngay</a>
+                                <a href="'.  $linksp.'" class="btn">Xem Chi Tiết</a>
                             </div>
                             <div class="image">
                             <img src="' . $hinh . '" alt="">

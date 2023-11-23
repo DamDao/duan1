@@ -3,10 +3,13 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
+include "../model/cart.php";
 include "header.php";
 // controller
 
-
+// if (!isset($_SESSION['user'])) {
+//     header("Location:index.php?act=dangnhap");
+// }
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -150,6 +153,25 @@ if (isset($_GET['act'])) {
         case 'dskh':
             $list_taikhoan = loadall_taikhoan();
             include "taikhoan/list.php";
+            break;
+
+        case 'dangnhap':
+            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $check_user = check_user($user, $pass);
+                // if (is_array($check_user) && ($check_user['tk_role'] == 0)) {
+                //     $_SESSION['user'] = $check_user;
+                //     header('Location:index.php');
+                // } 
+                if (is_array($check_user) && ($check_user['tk_role'] != 0)) {
+                    header('Location:index.php');
+                } else {
+                    $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra lại user or pass";
+                    # code...
+                }
+            }
+            include "account/login.php";
             break;
 
         case 'dangxuat':

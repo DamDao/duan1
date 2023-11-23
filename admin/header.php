@@ -7,6 +7,7 @@
     <title>Admin Book Store</title>
     <link rel="shortcut icon" href="../upload/mau-logo-nha-sach.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../view/css/style.css">
+    <link rel="stylesheet" href="../view/css/account.css">
     <script src="https://kit.fontawesome.com/bb3436b3fa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-GLhlTQ8iK1vrZLlOT+1S4YU6kYZlqLOdj0c5rqQFqI2HT6en5l5Fmee5dFjxIxt0" crossorigin="anonymous">
@@ -31,7 +32,9 @@
         <a href="index.php"> Trang Chủ</a>
         <a href="index.php?act=listdm"> Quản lý danh mục</a>
         <a href="index.php?act=listsp"> Quản lý sản phẩm</a>
-        <a href="index.php?act=dskh">Khách hàng</a>
+        <a href="index.php?act=dskh">Khách hàng</a>          
+        <a class="nav-link" href="?act=donhang">Đơn hàng</a>
+
 
         <div class="adm">
             <a href="index.php?act=dangxuat">Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></a>

@@ -10,7 +10,6 @@ function viewcart($del)
                 <th scope="col">Đơn giá</th>
                 <th scope="col">Số lượng</th>
                 <th scope="col">Thành tiền</th>
-                <th scope="col">Thao tác</th>
             </tr>
         </thead>
         <tbody>
@@ -44,7 +43,7 @@ function viewcart($del)
                         <td>' . number_format($value[3]) . ' VNĐ</td>
                         <td>' . $value[4] . '</td>
                         <td>' . number_format($thanhtien) . ' VNĐ</td>
-                        ' . $btn_xoa . '
+                        <td>' . $btn_xoa . '</td>
                       </tr>';
     $stt += 1;
     $cart_id += 1;
@@ -77,23 +76,32 @@ function insert_cart($idpro, $iduser, $idbill, $name, $price, $soluong, $thanhti
 function loadall_cart($id)
 {
   $sql = "select * from cart where bill_id=$id";
-  $result = pdo_query_all($sql);
+  $result = pdo_query($sql);
+  // $result = pdo_query_all($sql);
   return $result;
 }
 
 function loadall_cart_count($id)
 {
-  $sql = "select * from cart where bill_id=$id";
-  $result = pdo_query_all($sql);
+  $sql = "select * from cart where cart_id=$id";
+  $result = pdo_query($sql);
+  // $result = pdo_query_all($sql);
   return sizeof($result);
 }
 
 // BILL
-function insert_bill($bill_name, $bill_diachi, $bill_email, $bill_sodt, $bill_pttt, $bill_tong, $ngaydathang, $iduser)
+// function insert_bill($bill_name, $bill_diachi, $bill_email, $bill_sodt, $bill_pttt, $bill_tong, $ngaydathang, $iduser)
+// {
+//   $sql = "insert into bill(bill_name, bill_diachi,	bill_tel,	bill_email,	bill_pttt, bill_tongtien, bill_ngaydat, tk_id) 
+//   values('$bill_name','$bill_diachi',$bill_sodt,'$bill_email',$bill_pttt,$bill_tong,'$ngaydathang',$iduser)";
+//   return pdo_execute_lastInsertId($sql);
+// }
+
+function insert_bill($name, $address, $tel, $email, $pttt, $tongdonhang, $ngaydathang, $tk_id)
 {
-  $sql = "insert into bill(bill_name, bill_diachi,	bill_email,	bill_sdt,	bill_pttt, bill_tongtien, bill_ngaydat, tk_id) 
-  values('$bill_name','$bill_diachi','$bill_email',$bill_sodt,$bill_pttt,$bill_tong,'$ngaydathang',$iduser)";
-  return pdo_execute_lastInsertId($sql);
+  $sql = "insert into bill(bill_name, bill_diachi,bill_tel,	bill_email,	bill_pttt, bill_tongtien, bill_ngaydat, tk_id)
+        values('$name','$address','$tel','$email','$pttt','$tongdonhang','$ngaydathang','$tk_id')";
+  return pdo_execute_return_lastInsertId($sql);
 }
 
 function loadone_bill($id)
@@ -106,17 +114,19 @@ function loadone_bill($id)
 function loadall_bill($iduser)
 {
   $sql = "select * from bill where 1";
-  if ($iduser>0) {
-    $sql.=" and tk_id=$iduser";
-  }else{
-    $sql.="";
+  if ($iduser > 0) {
+    $sql .= " and tk_id=$iduser";
+  } else {
+    $sql .= "";
   }
-  $result = pdo_query_all($sql);
+  $result = pdo_query($sql);
+  // $result = pdo_query_all($sql);
   return $result;
 }
 
-function search_bill($idbill){
-  $sql = "select * from bill where bill_id like '%".$idbill."%' ";
+function search_bill($idbill)
+{
+  $sql = "select * from bill where bill_id like '%" . $idbill . "%' ";
   $result = pdo_query_all($sql);
   return $result;
 }
@@ -139,22 +149,24 @@ function bill_chitiet($listbill)
   $stt = 1;
   $tong = 0;
   foreach ($listbill as $value) {
-    $tong += $value['thanhtien'];
+    var_dump($value);
+    // die();
+    $tong += $value['cart_thanhtien'];
     echo '
             <tr class="text-center">
                         <th scope="row">' . $stt . '</th>
                         <td>
                           <img
-                            src="assets/image/' . $value['img'] . '"
+                            src="assets/image/' . $value['cart_img'] . '"
                             alt=""
                             width="50"
                           /><br />
-                          <span class="font-weight-bold">' . $value['name'] . '</span
+                          <span class="font-weight-bold">' . $value['cart_name'] . '</span
                           >
                         </td>
-                        <td>' . number_format($value['price']) . ' VNĐ</td>
-                        <td>' . $value['soluong'] . '</td>
-                        <td>' . number_format($value['thanhtien']) . ' VNĐ</td>
+                        <td>' . number_format($value['cart_price']) . ' VNĐ</td>
+                        <td>' . $value['cart_soluong'] . '</td>
+                        <td>' . number_format($value['cart_thanhtien']) . ' VNĐ</td>
                       </tr>';
     $stt += 1;
   }
@@ -185,13 +197,15 @@ function trangthai($trangthai)
   return $m_tt;
 }
 
-function update_dh($idbill,$trangthai){
-  $sql="update bill set trangthai=$trangthai where idbill=$idbill";
+function update_dh($idbill, $trangthai)
+{
+  $sql = "update bill set bill_trangthai=$trangthai where bill_id=$idbill";
   pdo_execute($sql);
 }
 
-function delete_dh($idbill){
-  $sql="delete from bill where idbill=$idbill";
+function delete_dh($idbill)
+{
+  $sql = "delete from bill where bill_id=$idbill";
   pdo_execute($sql);
 }
 

@@ -56,7 +56,6 @@
                             <td>' . $sp_price . '</td>
                             <td>' . $sp_tacgia . '</td>
                             <td>' . $sp_luotxem . '</td>
-                            
                             ';        
                 ?>
                  <td> <a href="<?php echo $editsp ?>"><i class="fa-regular fa-pen-to-square fa-fade fa-xl" style="color: #20365a;"></i></a> | <a  onclick="return confirm('Bạn có muốn xóa ko')" href="<?php echo $deletesp ?>"> <i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>

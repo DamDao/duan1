@@ -113,7 +113,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     $namesp = $_POST['namesp'];
                     $img = $_POST['img'];
                     $price = $_POST['price'];
-                    $soluong = 1;
+                    $soluong = $_POST['amount'];
                     $thanhtien = $price * $soluong;
                     $spadd = [$idsp, $namesp, $img, $price, $soluong, $thanhtien];
                     array_push($_SESSION['my_cart'], $spadd);
@@ -142,28 +142,42 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             break;
 
         case 'confirmbill':
-            if (isset($_POST['gui'])) {
-                $userbuy = $_POST['userbuy'];
-                $diachi = $_POST['diachi'];
-                $email = $_POST['email'];
-                $std = $_POST['std'];
-                $pttt = $_POST['pttt'];
-                $tongtien = tongtien();
-                $ngaydathang = date('Y-m-d');
-          // nó ddg kbt thg idbill là j
-                $idbill = insert_bill($userbuy, $diachi, $email, $std, $pttt, $tongtien, $ngaydathang, $_SESSION['iduser']);
-
-                foreach ($_SESSION['cart'] as $cart) {
-                    insert_cart($cart[0], $_SESSION['iduser'], $idbill, $cart[1], $cart[3], $cart[4], $cart[5], $cart[2]);
+            if (isset($_POST['gui'])&&($_POST['gui'])) {
+                if (isset($_SESSION['user'])) {
+                    $iduser = $_SESSION['user']['tk_id'];
+                }else{
+                    $id = 0;
                 }
-                $_SESSION['cart'] = [];
+                $name = $_POST['userbuy'];
+                $email = $_POST['email'];
+                $address = $_POST['diachi'];
+                $tel = $_POST['std'];
+                $pttt = $_POST['pttt'];
+                $ngaydathang = date('h:i:sa d/m/Y');
+                $tongdonhang = tongtien();
+
+                // tao bill
+                $idbill = insert_bill($name, $address, $tel, $email, $pttt, $tongdonhang, $ngaydathang, $tk_id);
+                         
+                
+                foreach ($_SESSION['my_cart'] as $cart) {
+                    insert_cart($cart[0],$_SESSION['user']['tk_id'], $idbill, $cart[1], $cart[3], $cart[4], $cart[5], $cart[2]);
+                }
+                $_SESSION['my_cart'] = [];
             }
-            $newbill = loadone_bill($idbill);
+            $bill = loadone_bill($idbill);
             $billct = loadall_cart($idbill);
-            include 'user/cart/ctbill.php';
+            include 'view/cart/ctbill.php';
             break;
 
-
+            case 'mybill':
+                if (isset($_SESSION['user'])) {
+                  $listbill=loadall_bill($_SESSION['user']);
+                  include 'view/cart/mybill.php';
+                }else{
+                  echo "   <p class='text-danger mt-5 text-center'>Bạn chưa có đơn hàng nào!!!</p>";
+                }
+                break;
 
 
 

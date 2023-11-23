@@ -1,4 +1,4 @@
-<div class="row mt-4 main-web">
+<div class="row mt-4 main-web" style="text-align: center;">
     <form action="?act=confirmbill" method="post">
         <div class="col-md-12">
             <div class="card mt-5">
@@ -47,14 +47,15 @@
         <div class="row mt-4 main-web">
             <div class="col-md-12 pr-0 pl-0">
                 <div class="card mt-5">
-                    <div class="card-header">Xem thêm sản phẩm khác</div>
-                    <table class="table">
+                    <div class="card-header"><h2>Thông Tin Đơn hàng</h2></div>
+                    <table class="table" style="width: 100%; font-size: 17px;">
                         <?php
                         viewcart(0);
                         ?>
                     </table>
                     <div class="text-right">
-                        <button name="gui" class="btn btn-success w-25 mb-3 mx-3">Đồng ý đặt hàng</button>
+                        <input type="submit" name="gui" class="btn btn-success w-25 mb-3 mx-3" value="Đồng ý đặt hàng"></input>
+                        <!-- <input class="btn btn-success w-25 mb-3 mx-3" value="Đồng ý đặt hàng" readonly></input> -->
                     </div>
                 </div>
             </div>

@@ -8,8 +8,10 @@
         </div>
     </div>
     <?php
-    if (isset($newbill) && is_array($newbill)) {
-        extract($newbill);
+    if (isset($bill) && is_array($bill)) {
+        extract($bill);
+        // var_dump($bill);
+        // die();
     }
     ?>
     <div class="col-md-12">
@@ -26,7 +28,7 @@
                 </tr>
                 <tr>
                     <td>Tổng đơn hàng</td>
-                    <td><?= number_format($bill_tong).' VNĐ' ?></td>
+                    <td><?= number_format($bill_tongtien).' VNĐ' ?></td>
                 </tr>
                 <tr>
                     <td>Phương thức thanh toán</td>
@@ -55,19 +57,19 @@
                 <table class="table">
                     <tr>
                         <td>Người đặt hàng</td>
-                        <td><?php echo $bill_name; ?></td>
+                        <td><?php echo $name; ?></td>
                     </tr>
                     <tr>
                         <td>Địa chỉ</td>
-                        <td> <input class="w-100" type="text" name="diachi" value="<?php echo $bill_diachi; ?>"> </td>
+                        <td> <input class="w-100" type="text" name="diachi" value="<?php echo $address; ?>"> </td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td> <input class="w-100" type="text" name="email" value="<?php echo $bill_email; ?>"> </td>
+                        <td> <input class="w-100" type="text" name="email" value="<?php echo $email; ?>"> </td>
                     </tr>
                     <tr>
                         <td>Số điện thoại</td>
-                        <td> <input class="w-100" type="text" name="std" value="<?php echo $bill_sodt; ?>"> </td>
+                        <td> <input class="w-100" type="text" name="std" value="<?php echo $tel; ?>"> </td>
                     </tr>
                 </table>
             </div>

@@ -16,14 +16,14 @@
             <?php
             foreach ($listbill as $value) :
                 extract($value);
-                $trangthai=trangthai($trangthai);
-                $soluong=loadall_cart_count($idbill)
+                $trangthai=trangthai($bill_trangthai);
+                $soluong=loadall_cart_count($bill_id)
             ?>
             <tr>
-                <td class="text-center">DAM-<?=$idbill?></td>
+                <td class="text-center">DAM-<?=$bill_id?></td>
                 <td class="text-center"><?=date("d/m/Y", strtotime($ngaydathang));?></td>
                 <td class="text-center"><?=$soluong?></td>
-                <td class="text-center"><?=number_format($bill_tong)?>vnd</td>
+                <td class="text-center"><?=number_format($bill_tongtien)?>vnd</td>
                 <td class="text-center"><?=$trangthai?></td>
             </tr>
             <?php endforeach;?>

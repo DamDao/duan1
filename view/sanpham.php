@@ -40,10 +40,11 @@
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
                                 <span class="price">' . $sp_price . '</span>
                                 <form action="?act=addtocart" method="POST">
-                                <input type="hidden" name="idsp" value="'. $sp_id.'">
-                                <input type="hidden" name="namesp" value="'. $sp_name.'">
-                                <input type="hidden" name="img" value="'. $sp_img.'">
-                                <input type="hidden" name="price" value="'. $sp_price.'">
+                               <input type="hidden" name="amount" id="amount" value="1">
+                                <input type="hidden" name="idsp" value="' . $sp_id . '">
+                                <input type="hidden" name="namesp" value="' . $sp_name . '">
+                                <input type="hidden" name="img" value="' . $sp_img . '">
+                                <input type="hidden" name="price" value="' . $sp_price . '">
                                 <button type="submit" name="addtocart" class="btn btn-success ">Thêm vào giỏ hàng</button>
                                 </form>
                         </div>
@@ -143,8 +144,15 @@
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
                             <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
                                 sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-                            <a href="#" class="btn">Thêm giỏ hàng</a>
                             <span class="price">' . $sp_price . '</span>
+                            <form action="?act=addtocart" method="POST">
+                            <input type="hidden" name="amount" id="amount" value="1">
+                             <input type="hidden" name="idsp" value="' . $sp_id . '">
+                             <input type="hidden" name="namesp" value="' . $sp_name . '">
+                             <input type="hidden" name="img" value="' . $sp_img . '">
+                             <input type="hidden" name="price" value="' . $sp_price . '">
+                             <button type="submit" name="addtocart" class="btn btn-success ">Thêm vào giỏ hàng</button>
+                             </form>
                         </div>
                     </div>';
         }
