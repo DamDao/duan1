@@ -32,8 +32,9 @@
         <a href="index.php"> Trang Chủ</a>
         <a href="index.php?act=listdm"> Quản lý danh mục</a>
         <a href="index.php?act=listsp"> Quản lý sản phẩm</a>
-        <a href="index.php?act=dskh">Khách hàng</a>          
-        <a class="nav-link" href="?act=donhang">Đơn hàng</a>
+        <a class="nav-link" href="?act=donhang">Quản lý đơn hàng</a>
+        <a href="index.php?act=dskh">Khách hàng</a>         
+        <a href="index.php?act=dsbl">Bình luận</a>         
 
 
         <div class="adm">

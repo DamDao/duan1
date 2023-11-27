@@ -35,7 +35,7 @@ function viewcart($del)
                           <img
                             src="' . $value[2] . '"
                             alt=""
-                            width="50"
+                            width="130px"
                           /><br />
                           <span class="font-weight-bold">' . $value[1] . '</span
                           >
@@ -83,7 +83,7 @@ function loadall_cart($id)
 
 function loadall_cart_count($id)
 {
-  $sql = "select * from cart where cart_id=$id";
+  $sql = "select * from cart where bill_id=$id";
   $result = pdo_query($sql);
   // $result = pdo_query_all($sql);
   return sizeof($result);
@@ -115,7 +115,8 @@ function loadall_bill($iduser)
 {
   $sql = "select * from bill where 1";
   if ($iduser > 0) {
-    $sql .= " and tk_id=$iduser";
+    // var_dump($iduser);
+    $sql .= " and tk_id=".$iduser['tk_id'];
   } else {
     $sql .= "";
   }
@@ -123,6 +124,24 @@ function loadall_bill($iduser)
   // $result = pdo_query_all($sql);
   return $result;
 }
+
+// function loadall_bill($iduser)
+// {
+//   if (is_array($iduser)) {
+//   } else {
+//     // Xử lý khi $iduser không phải là mảng
+//     $sql = "SELECT * FROM bill WHERE 1";
+//     if ($iduser > 0) {
+//       $sql .= " AND tk_id=" . $iduser;
+//     }
+
+//     $result = pdo_query($sql);
+//     // $result = pdo_query_all($sql);
+//     return $result;
+//   }
+// }
+
+
 
 function search_bill($idbill)
 {
@@ -149,7 +168,7 @@ function bill_chitiet($listbill)
   $stt = 1;
   $tong = 0;
   foreach ($listbill as $value) {
-    var_dump($value);
+    // var_dump($value);
     // die();
     $tong += $value['cart_thanhtien'];
     echo '
@@ -157,9 +176,9 @@ function bill_chitiet($listbill)
                         <th scope="row">' . $stt . '</th>
                         <td>
                           <img
-                            src="assets/image/' . $value['cart_img'] . '"
+                            src="' . $value['cart_img'] . '"
                             alt=""
-                            width="50"
+                            width="130px"
                           /><br />
                           <span class="font-weight-bold">' . $value['cart_name'] . '</span
                           >

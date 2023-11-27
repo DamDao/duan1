@@ -64,6 +64,7 @@
             <nav class="navbar">
                 <a class="active" href="index.php?act=index.php"><i class="fa-solid fa-house fa-lg"></i> Trang Chủ</a>
                 <a href="index.php?act=sanpham"><i class="fa-solid fa-book fa-lg"></i>  Sản Phẩm</a>
+                <a class="nav-link" href="index.php?act=mybill">Đơn hàng</a>
                 <!-- <a href="index.php"><i class="fa-solid fa-blog fa-lg"></i>  Blog</a> -->
                 <!-- <a href="#menu">menu</a>
                 <a href="#review">review</a>
@@ -119,49 +120,6 @@
 
     <!-- home section starts -->
 
-    <section class="home" id="home">
 
-        <div class="swiper mySwiper home-slider">
-
-            <div class="swiper-wrapper wrapper">
-
-                <!-- <div class="swiper-slide slider"> -->
-                <!-- <div class="content">
-                <span>our special diesh</span>
-                <h3>Sơ mi trắng</h3>
-                <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-            <div class="image">
-                <img src="image/home-img-1.jpg" alt="">
-            </div> -->
-
-                <?php
-                include "global.php";
-                $spnew = loadall_sanpham_home();
-                foreach ($spnew as $sp) {
-                    extract($sp);
-                    $linksp = "index.php?act=sanphamct&idsp=" . $sp_id;
-                    $hinh = $img_path . $sp_img;
-                    echo '<div class="swiper-slide slider">
-                            <div class="content">
-                              
-                                <h3>    <a href="' . $linksp . '">' . $sp_name . '</a></h3>
-                                <p>'.$sp_mota.'</p>
-                                <a href="'.  $linksp.'" class="btn">Xem Chi Tiết</a>
-                            </div>
-                            <div class="image">
-                            <img src="' . $hinh . '" alt="">
-                            </div>
-                        </div>';
-                }
-                ?>
-                <!-- </div> -->
-                <!-- <div class="swiper-slide slider">
-        </div> -->
-            </div>
-            <!-- <div class="swiper-pagination"></div> -->
-        </div>
-    </section>
 
     <!-- home section ends -->

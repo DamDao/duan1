@@ -43,7 +43,9 @@ $list_taikhoan = loadall_taikhoan();
 <body>
 
     <div class="frm_bl">
-        <div class="box_title"><h3>BÌNH LUẬN</h3></div>
+        <div class="box_title">
+            <h3>BÌNH LUẬN</h3>
+        </div>
         <div class="box_content2 menu_doc binhluan">
             <table>
 
@@ -56,11 +58,16 @@ $list_taikhoan = loadall_taikhoan();
             </tr>';
                 // echo "Nội dung bình luận ở đây: ", $idpro;
                 foreach ($dsbl as $bl) {
-                    $idusere = $_SESSION['user']['tk_name'];
-                    extract($bl);
-                    echo '<tr><td>' . $noidung . '</td>';
-                    echo '<td>' . $idusere . '</td>';
-                    echo '<td>' . $ngaybinhluan . '</td></tr>';
+                    if (isset($_SESSION['user'])) {
+
+                        $idusere = $_SESSION['user']['tk_name'];
+                        extract($bl);
+                        echo '<tr><td>' . $noidung . '</td>';
+                        echo '<td>' . $idusere . '</td>';
+                        echo '<td>' . $ngaybinhluan . '</td></tr>';
+                    }else {
+                        echo "Đăng nhập để bình luận";
+                    }
                 }
                 ?>
             </table>

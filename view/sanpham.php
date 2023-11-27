@@ -1,3 +1,48 @@
+<section class="home" id="home">
+
+    <div class="swiper mySwiper home-slider">
+
+        <div class="swiper-wrapper wrapper">
+
+            <!-- <div class="swiper-slide slider"> -->
+            <!-- <div class="content">
+        <span>our special diesh</span>
+        <h3>Sơ mi trắng</h3>
+        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
+        <a href="#" class="btn">order now</a>
+    </div>
+    <div class="image">
+        <img src="image/home-img-1.jpg" alt="">
+    </div> -->
+
+            <?php
+            include "global.php";
+            $spnew = loadall_sanpham_home();
+            foreach ($spnew as $sp) {
+                extract($sp);
+                $linksp = "index.php?act=sanphamct&idsp=" . $sp_id;
+                $hinh = $img_path . $sp_img;
+                echo '<div class="swiper-slide slider">
+                    <div class="content">
+                      
+                        <h3>    <a href="' . $linksp . '">' . $sp_name . '</a></h3>
+                        <p>' . $sp_mota . '</p>
+                        <a href="' . $linksp . '" class="btn">Xem Chi Tiết</a>
+                    </div>
+                    <div class="image">
+                    <img src="' . $hinh . '" alt="">
+                    </div>
+                </div>';
+            }
+            ?>
+            <!-- </div> -->
+            <!-- <div class="swiper-slide slider">
+</div> -->
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+    </div>
+</section>
+
 <!-- dishes sectionl starts -->
 
 <!-- dishes sectionl ends -->
@@ -51,15 +96,6 @@
                     </div>';
         }
         ?>
-
-        <!-- <form action="index.php?act=add_cart" method="POST">
-    <input type="hidden" name="id" id="" value="'.$sp_id.'">
-    <input type="hidden" name="name" id="" value="'.$sp_name.'">
-    <input type="hidden" name="img" id="" value="'.$sp_img.'">
-    <input type="hidden" name="price" id="" value="'.$sp_price.'">
-    <a href="#" class="btn"><input type="submit" name="add_cart" id="" value="Thêm vào giỏ hàng"></a>
-</form> -->
-
 
     </div>
 </setion>
@@ -167,136 +203,7 @@
 
 
 
-<!-- <section class="review" id="review"> -->
 
-<h3 class="sub-heading"> Customer's review </h3>
-<h1 class="heading"> What they say </h1>
-
-<div class="swiper mySwiper review-slider">
-    <div class="swiper-wrapper wrapper">
-        <div class="swiper-slide slide">
-            <i class="fas fa-quote-right"></i>
-            <div class="user">
-                <img src="image/home-img-1.jpg" alt="">
-                <div class="user-info">
-                    <h3>John deo</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i> <!--Ngôi sao-->
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-        </div>
-        <div class="swiper-slide slide">
-            <i class="fas fa-quote-right"></i>
-            <div class="user">
-                <img src="image/home-img-2.jpg" alt="">
-                <div class="user-info">
-                    <h3>John desh</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i> <!--Ngôi sao-->
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-        </div>
-        <div class="swiper-slide slide">
-            <i class="fas fa-quote-right"></i>
-            <div class="user">
-                <img src="image/home-img-3.jpg" alt="">
-                <div class="user-info">
-                    <h3>messi leo</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i> <!--Ngôi sao-->
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-        </div>
-        <div class="swiper-slide slide">
-            <i class="fas fa-quote-right"></i>
-            <div class="user">
-                <img src="image/home-img-3.jpg" alt="">
-                <div class="user-info">
-                    <h3>messi leo</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i> <!--Ngôi sao-->
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-        </div>
-        <div class="swiper-slide slide">
-            <i class="fas fa-quote-right"></i>
-            <div class="user">
-                <img src="image/home-img-2.jpg" alt="">
-                <div class="user-info">
-                    <h3>messi leo</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i> <!--Ngôi sao-->
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
-        </div>
-    </div>
-</div>
-
-<!-- </section> -->
-
-<!-- review section ends -->
-
-<!-- oder section starts -->
-
-<!-- <section class="oder" id="oder"> -->
-
-<h3 class="sub-heading"> Oder now </h3>
-<h1 class="heading"> Free and fast </h1>
-
-<form action="">
-
-    <div class="inputBox">
-        <div class="input">
-            <span>Your name</span>
-            <input type="text" name="" id="" placeholder="Enter your name">
-        </div>
-        <div class="input">
-            <span>Your number</span>
-            <input type="number" name="" id="" placeholder="Enter your number">
-        </div>
-    </div>
-
-</form>
 
 <!-- </section> -->
 

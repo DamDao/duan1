@@ -1,6 +1,6 @@
 
 .main-web {
-  min-height: 1000px;
+  /* min-height: 1000px; */
   text-align: center;
 }
 .table_bill{
@@ -8,7 +8,9 @@
     text-align: center;
     font-size: 15px;
 }
-
+.table_ctbill{
+  
+}
 /* .btn.btn-dark.mua
 {
    display: none; 

@@ -4,6 +4,7 @@ include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
 include "../model/cart.php";
+include "../model/binhluan.php";
 include "header.php";
 // controller
 
@@ -19,6 +20,7 @@ if (isset($_GET['act'])) {
                 if ($_POST['tenloai'] != '') {
                     $tenloai = $_POST['tenloai'];
                     insert_danhmuc($tenloai);
+                    // header("Location:index.php?act=listdm");
                     $thongbaor = "Thêm thành công";
                 } else {
                     $thongbaor = 'Mời nhập tên danh mục';
@@ -155,6 +157,46 @@ if (isset($_GET['act'])) {
             include "taikhoan/list.php";
             break;
 
+
+        // // BINH LUAN
+        // case 'totalbl':
+        //     $totalbl = get_all_binhluan();
+        //     include './binhluan/totalbinhluan.php';
+        //     break;
+
+        // case 'chitietbl':
+        //     if (isset($_GET['idsp'])) {
+        //         $bl = load2_binhluan($_GET['idsp']);
+        //         $bl1 = get_one_binhluan($_GET['idsp']);
+        //     }
+        //     include './binhluan/chitietbinhluan.php';
+        //     break;
+
+        // case 'deletebl':
+        //     if (isset($_GET['idbl'])) {
+        //         delete_binhluan($_GET['idbl']);
+        //     }
+        //     header("location:index.php?act=totalbl");
+        //     break;
+
+
+
+
+
+        case 'dsbl':
+            $list_binhluan = loadall_binhluan(0);
+            include "binhluan/list.php";
+            break;
+        case 'delete_binhluan':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_binhluan($_GET['id']);
+            }
+            $list_binhluan = loadall_binhluan(0);
+            include "binhluan/list.php";
+            // header("Location:list.php");
+            break;
+
+
         case 'dangnhap':
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $user = $_POST['user'];
@@ -173,6 +215,40 @@ if (isset($_GET['act'])) {
             }
             include "account/login.php";
             break;
+
+
+
+        // DON HANG
+        case 'donhang':
+            if (isset($_POST['searchdh'])) {
+                $listbill = search_bill($_POST['iddh']);
+            } else {
+                $listbill = loadall_bill(0);
+            }
+
+            include 'donhang/list-donhang.php';
+            break;
+
+        case 'updatedh':
+            if (isset($_GET['iddh'])) {
+                $dh = loadone_bill($_GET['iddh']);
+            }
+            if (isset($_POST['updatedh'])) {
+                $id = $_POST['iddh'];
+                $tt = $_POST['ttdh'];
+                update_dh($id, $tt);
+                header("location:index.php?act=donhang");
+            }
+            include 'donhang/edit-donhang.php';
+            break;
+
+        case 'deletedh':
+            if (isset($_GET['iddh'])) {
+                delete_dh($_GET['iddh']);
+                header("location:index.php?act=donhang");
+            }
+            break;
+
 
         case 'dangxuat':
             session_unset();

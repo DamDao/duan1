@@ -95,6 +95,7 @@
                                             <span class="price">$ ' . $sp_price . '</span>
                                             <h2><a href="' . $linksp . '">' . $sp_name . '</a></h2>
                                         </div>
+                                        
                             </div>';
         }
         ?>

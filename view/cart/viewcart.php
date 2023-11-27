@@ -8,6 +8,7 @@
         ?>
       </table>
       <div class="text-right">
+        <a href="?act=sanpham" class="btn btn-success w-25 mb-3 mx-3">Tiếp tục mua hàng</a>
         <a href="?act=bill" class="btn btn-success w-25 mb-3 mx-3">Tiến hành đặt hàng</a>
       </div>
     </div>

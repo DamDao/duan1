@@ -15,8 +15,8 @@
                     $tel = $_SESSION['user']['tk_tel'];
                 }
                 ?>
-                <div class="card-header">Thông tin đặt hàng</div>
-                <table class="table">
+                <div class="card-header"><h1>Thông tin đặt hàng</h1></div>
+                <table class="table" style="    width: 50%; margin: 30px 33%; font-size: 15px;">
                     <tr>
                         <td>Người đặt hàng</td>
                         <td> <input class="w-100" type="text" name="userbuy" value="<?php echo $name; ?>"> </td>
@@ -48,7 +48,7 @@
             <div class="col-md-12 pr-0 pl-0">
                 <div class="card mt-5">
                     <div class="card-header"><h2>Thông Tin Đơn hàng</h2></div>
-                    <table class="table" style="width: 100%; font-size: 17px;">
+                    <table class="table" style="width: 80%; font-size: 17px; margin-left: 10%">
                         <?php
                         viewcart(0);
                         ?>
