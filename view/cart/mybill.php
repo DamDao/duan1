@@ -14,7 +14,7 @@
         </thead>
         <tbody>
             <?php
-            foreach ($listbill as $value) :
+            foreach ($listbill as $value):
                 extract($value);
                 // var_dump($value);
                 $trangthai=trangthai($bill_trangthai);
