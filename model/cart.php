@@ -125,6 +125,7 @@ function loadall_bill($iduser)
   return $result;
 }
 
+
 // function loadall_bill($iduser)
 // {
 //   if (is_array($iduser)) {

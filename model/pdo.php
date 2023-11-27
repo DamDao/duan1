@@ -69,7 +69,6 @@ function pdo_query($sql)
     }
 }
 
-
 // function pdo_query_all($sql)
 // {
 //     $sql_args = array_slice(func_get_args(), 1);

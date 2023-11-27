@@ -17,6 +17,7 @@
             foreach ($listbill as $value):
                 extract($value);
                 // var_dump($value);
+                
                 $trangthai=trangthai($bill_trangthai);
                 $soluong=loadall_cart_count($bill_id)
             ?>
