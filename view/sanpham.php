@@ -2,19 +2,9 @@
 
     <div class="swiper mySwiper home-slider">
 
+    <!-- slider -->
+
         <div class="swiper-wrapper wrapper">
-
-            <!-- <div class="swiper-slide slider"> -->
-            <!-- <div class="content">
-        <span>our special diesh</span>
-        <h3>Sơ mi trắng</h3>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
-        <a href="#" class="btn">order now</a>
-    </div>
-    <div class="image">
-        <img src="image/home-img-1.jpg" alt="">
-    </div> -->
-
             <?php
             include "global.php";
             $spnew = loadall_sanpham_home();
@@ -57,9 +47,9 @@
 <setion class="menu" id="menu">
 
     <h3 class="sub-heading"> DANH SÁCH SẢN PHẨM </h3>
-    <h1 class="heading">
+    <h5 class="heading">
         <?php echo $tendm ?>
-    </h1>
+    </h5>
 
     <div class="box-container">
         <?php
@@ -83,6 +73,7 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
+                            <p>Tác Giả: '.$sp_tacgia.'</p>
                                 <span class="price">' . $sp_price . '</span>
                                 <form action="?act=addtocart" method="POST">
                                <input type="hidden" name="amount" id="amount" value="1">
@@ -178,8 +169,7 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
-                            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
+                            <p>Tác Giả: '.$sp_tacgia.'</p>
                             <span class="price">' . $sp_price . '</span>
                             <form action="?act=addtocart" method="POST">
                             <input type="hidden" name="amount" id="amount" value="1">

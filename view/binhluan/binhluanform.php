@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include "../../model/pdo.php";
 include "../../model/binhluan.php";
@@ -56,17 +57,22 @@ $list_taikhoan = loadall_taikhoan();
                 <th>Thời gian</th>
         
             </tr>';
-                // echo "Nội dung bình luận ở đây: ", $idpro;
-                foreach ($dsbl as $bl) {
+            $dsbl = loadall_binhluan($idpro);
+            foreach ($dsbl as $bl) {
+                    extract($bl);
+                    // var_dump($bl);
+                    // die();
                     if (isset($_SESSION['user'])) {
-
-                        $idusere = $_SESSION['user']['tk_name'];
-                        extract($bl);
+                        $idusere = $tk_name;
                         echo '<tr><td>' . $noidung . '</td>';
                         echo '<td>' . $idusere . '</td>';
                         echo '<td>' . $ngaybinhluan . '</td></tr>';
                     }else {
-                        echo "Đăng nhập để bình luận";
+                        $idusere = $tk_name;
+                        echo '<tr><td>' . $noidung . '</td>';
+                        echo '<td>' . $idusere . '</td>';
+                        echo '<td>' . $ngaybinhluan . '</td></tr>';
+                        // echo "Đăng nhập để bình luận";
                     }
                 }
                 ?>

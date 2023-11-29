@@ -16,7 +16,7 @@
                 }
                 ?>
                 <div class="card-header"><h1>Thông tin đặt hàng</h1></div>
-                <table class="table" style="    width: 50%; margin: 30px 33%; font-size: 15px;">
+                <table class="table" style="width: 50%; margin: 30px 33%; font-size: 15px;">
                     <tr>
                         <td>Người đặt hàng</td>
                         <td> <input class="w-100" type="text" name="userbuy" value="<?php echo $name; ?>"> </td>

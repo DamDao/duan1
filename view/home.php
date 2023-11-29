@@ -59,9 +59,10 @@
             $sp_img = $img_path . $sp_img;
             echo ' <div class="box">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="fas fa-eye"></a>
+                        <a href="'.$linksp.'" class="fas fa-eye"></a>
                         <a href="' . $linksp . '"><img src="' . $sp_img . '" alt=""></a>
                         <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
+                        <p>Tác Giả: '.$sp_tacgia.'</p>
                       <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -168,8 +169,7 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
-                            <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?lorem ipsum dolor
-                                sit amet consectetur adipisicing elit. Sit natus dolor cumque?.</p>
+                            <p>Tác Giả: '.$sp_tacgia.'</p>
                                 <span class="price">' . $sp_price . '</span>
                                 <form action="?act=addtocart" method="POST">
                                 <input type="hidden" name="amount" id="amount" value="1">

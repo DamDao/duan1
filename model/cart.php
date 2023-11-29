@@ -5,11 +5,11 @@ function viewcart($del)
   echo '
   <thead>
             <tr class="text-center">
-                <th scope="col">STT</th>
-                <th scope="col">Sản phẩm</th>
-                <th scope="col">Đơn giá</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Thành tiền</th>
+                <th style="border-bottom: 2px solid green;" scope="col">STT</th>
+                <th style="border-bottom: 2px solid green;" scope="col">Sản phẩm</th>
+                <th style="border-bottom: 2px solid green;" scope="col">Đơn giá</th>
+                <th style="border-bottom: 2px solid green;" scope="col">Số lượng</th>
+                <th style="border-bottom: 2px solid green;" scope="col">Thành tiền</th>
             </tr>
         </thead>
         <tbody>
@@ -24,14 +24,14 @@ function viewcart($del)
     $thanhtien = $value[4] * $value[3];
     $tong += $thanhtien;
     if ($del == 1) {
-      $btn_xoa = '<td><a href="index.php?act=delete_cart&cart_id=' . $cart_id . '"><i class="fa-solid fa-trash fa-fade fa-lg"></i></td>';
+      $btn_xoa = '<a href="index.php?act=delete_cart&cart_id=' . $cart_id . '"><i class="fa-solid fa-trash fa-fade fa-lg"></i>';
     } else {
       $btn_xoa = '';
     }
     echo '
             <tr class="text-center">
-                        <th scope="row">' . $stt . '</th>
-                        <td>
+                        <td scope="row">' . $stt . '</td>
+                        <td style="padding: 13px;">
                           <img
                             src="' . $value[2] . '"
                             alt=""
@@ -40,17 +40,17 @@ function viewcart($del)
                           <span class="font-weight-bold">' . $value[1] . '</span
                           >
                         </td>
-                        <td>' . number_format($value[3]) . ' VNĐ</td>
-                        <td>' . $value[4] . '</td>
-                        <td>' . number_format($thanhtien) . ' VNĐ</td>
-                        <td>' . $btn_xoa . '</td>
-                      </tr>';
+                        <td style="padding: 13px;">' . number_format($value[3]) . ' VNĐ</td>
+                        <td style="padding: 13px;">' . $value[4] . '</td>                        
+                        <td style="padding: 13px;">' . number_format($thanhtien) . ' VNĐ</td>
+                        <td style="padding: 13px;">' . $btn_xoa . '</td>
+             </tr>';
     $stt += 1;
     $cart_id += 1;
   }
   echo '<tr>
-              <td class="px-4" colspan="4">Tổng tiền sản phẩm: </td>
-              <td class="text-center">' . number_format($tong) . ' VNĐ</td> 
+              <td style="padding: 13px;" class="px-4" colspan="4">Tổng tiền sản phẩm: </td>
+              <td style="padding: 13px;" class="text-center">' . number_format($tong) . ' VNĐ</td> 
               <td></td> 
           </tr>
           </tbody>';
@@ -89,13 +89,7 @@ function loadall_cart_count($id)
   return sizeof($result);
 }
 
-// BILL
-// function insert_bill($bill_name, $bill_diachi, $bill_email, $bill_sodt, $bill_pttt, $bill_tong, $ngaydathang, $iduser)
-// {
-//   $sql = "insert into bill(bill_name, bill_diachi,	bill_tel,	bill_email,	bill_pttt, bill_tongtien, bill_ngaydat, tk_id) 
-//   values('$bill_name','$bill_diachi',$bill_sodt,'$bill_email',$bill_pttt,$bill_tong,'$ngaydathang',$iduser)";
-//   return pdo_execute_lastInsertId($sql);
-// }
+
 
 function insert_bill($name, $address, $tel, $email, $pttt, $tongdonhang, $ngaydathang, $tk_id)
 {
@@ -128,6 +122,23 @@ function loadall_bill($iduser)
 
 // function loadall_bill($iduser)
 // {
+//   $sql = "SELECT * FROM bill 
+//             INNER JOIN cart ON cart.bill_id = bill.bill_id 
+//             WHERE 1";
+
+//   if ($iduser > 0) {
+//     $sql .= " AND tk_id=" . $iduser; // Chú ý: Sửa $iduser['tk_id'] thành $iduser nếu $iduser chứa giá trị tk_id.
+//   } else {
+//         $sql .= "";
+//       }
+
+//   $result = pdo_query($sql);
+//   return $result;
+// }
+
+
+// function loadall_bill($iduser)
+// {
 //   if (is_array($iduser)) {
 //   } else {
 //     // Xử lý khi $iduser không phải là mảng
@@ -144,12 +155,12 @@ function loadall_bill($iduser)
 
 
 
-function search_bill($idbill)
-{
-  $sql = "select * from bill where bill_id like '%" . $idbill . "%' ";
-  $result = pdo_query_all($sql);
-  return $result;
-}
+// function search_bill($idbill)
+// {
+//   $sql = "select * from bill where bill_id like '%" . $idbill . "%' ";
+//   $result = pdo_query_all($sql);
+//   return $result;
+// }
 
 
 function bill_chitiet($listbill)

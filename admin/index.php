@@ -158,74 +158,44 @@ if (isset($_GET['act'])) {
             break;
 
 
-        // // BINH LUAN
-        // case 'totalbl':
-        //     $totalbl = get_all_binhluan();
-        //     include './binhluan/totalbinhluan.php';
-        //     break;
-
-        // case 'chitietbl':
-        //     if (isset($_GET['idsp'])) {
-        //         $bl = load2_binhluan($_GET['idsp']);
-        //         $bl1 = get_one_binhluan($_GET['idsp']);
-        //     }
-        //     include './binhluan/chitietbinhluan.php';
-        //     break;
-
-        // case 'deletebl':
-        //     if (isset($_GET['idbl'])) {
-        //         delete_binhluan($_GET['idbl']);
-        //     }
-        //     header("location:index.php?act=totalbl");
-        //     break;
-
-
-
-
-
         case 'dsbl':
-            $list_binhluan = loadall_binhluan(0);
+            $binh_luan = loadall_binhluan(0);
             include "binhluan/list.php";
             break;
         case 'delete_binhluan':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 delete_binhluan($_GET['id']);
             }
-            $list_binhluan = loadall_binhluan(0);
+            $binh_luan = loadall_binhluan(0);
             include "binhluan/list.php";
             // header("Location:list.php");
             break;
 
 
-        case 'dangnhap':
-            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-                $check_user = check_user($user, $pass);
-                // if (is_array($check_user) && ($check_user['tk_role'] == 0)) {
-                //     $_SESSION['user'] = $check_user;
-                //     header('Location:index.php');
-                // } 
-                if (is_array($check_user) && ($check_user['tk_role'] != 0)) {
-                    header('Location:index.php');
-                } else {
-                    $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra lại user or pass";
-                    # code...
-                }
-            }
-            include "account/login.php";
-            break;
+        // case 'dangnhap':
+        //     if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+        //         $user = $_POST['user'];
+        //         $pass = $_POST['pass'];
+        //         $check_user = check_user($user, $pass);
+        //         // if (is_array($check_user) && ($check_user['tk_role'] == 0)) {
+        //         //     $_SESSION['user'] = $check_user;
+        //         //     header('Location:index.php');
+        //         // } 
+        //         if (is_array($check_user) && ($check_user['tk_role'] != 0)) {
+        //             header('Location:index.php');
+        //         } else {
+        //             $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra lại user or pass";
+        //             # code...
+        //         }
+        //     }
+        //     include "account/login.php";
+        //     break;
 
 
 
         // DON HANG
         case 'donhang':
-            if (isset($_POST['searchdh'])) {
-                $listbill = search_bill($_POST['iddh']);
-            } else {
-                $listbill = loadall_bill(0);
-            }
-
+            $listbill = loadall_bill(0);
             include 'donhang/list-donhang.php';
             break;
 

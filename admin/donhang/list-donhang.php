@@ -27,7 +27,7 @@
             <tbody>
                 <?php
                 if (!$listbill) {
-                    $m_donhang = "Đơn hàng không tồn tại!!";
+                    $m_donhang = "Chưa có đơn hàng nào";
                 } else {
                     foreach ($listbill as $value):
                         extract($value);
@@ -58,7 +58,7 @@
                                 <?= $soluong; ?>
                             </td>
                             <td class="">
-                                <?= $bill_tongtien; ?>vnd
+                                <?= number_format($bill_tongtien); ?> VND
                             </td>
                             <td class="">
                                 <?= $bill_ngaydat; ?>

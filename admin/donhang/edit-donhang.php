@@ -1,5 +1,5 @@
-<div class="col-md-8">
-  <h3>Sửa đơn hàng</h3>
+<div style="text-align: center;">
+  <h3>Cập Nhật Đơn Hàng</h3>
   <form action="?act=updatedh" method="post">
     <?php
     if (is_array($dh)) {
@@ -7,10 +7,11 @@
       // var_dump ($dh);
     }
     ?>
-    <div class="mb-3">
+    <div class="mb10">
       <label for="name" class="form-label">Mã đơn hàng</label>
       <input type="text" class="form-control" name="iddh" value="<?= $bill_id; ?>" readonly> <br>
-
+    </div>
+    <div class="mb10">
       <label for="name" class="form-label">Tình trạng đơn hàng</label>
       <select class="form-select" name="ttdh" aria-label="Default select example">
           <option value="0" <?php echo ($bill_trangthai==0) ? "selected" : ""; ?>>
@@ -26,7 +27,7 @@
           Đơn hàng giao thành công
           </option>
       </select>
-    </div>
+      </div>
     <button type="submit" name="updatedh" class="add_css">Cập Nhật</button>
 
   </form>

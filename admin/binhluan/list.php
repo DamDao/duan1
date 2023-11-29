@@ -14,7 +14,7 @@
                     <th>THAO TÁC</th>
                 </tr>
                 <?php
-                    foreach ($list_binhluan as $binhluan) {
+                    foreach ($binh_luan as $binhluan) {
                         extract($binhluan);
                         // var_dump($binhluan);
                         $delete_binhluan="index.php?act=delete_binhluan&id=".$id;
@@ -22,8 +22,8 @@
                 '<tr>
                     <td>'.$id.'</td>
                     <td>'.$noidung.'</td>
-                    <td>'.$iduser.'</td>
-                    <td>'.$idpro.'</td>
+                    <td>'.$tk_name.'</td>
+                    <td>'.$sp_name.'</td>
                     <td>'.$ngaybinhluan.'</td>
                     <td> <a href="'.$delete_binhluan.'"> <i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>
                 </tr>';
@@ -39,3 +39,4 @@
         </div> -->
     </div>
 </div>
+

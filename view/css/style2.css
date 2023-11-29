@@ -47,7 +47,7 @@ section:nth-child(even) {
 .heading {
     text-align: center;
     color: var(--blaack);
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding-bottom: 2rem;
     /* text-transform: uppercase; */
 }
@@ -330,7 +330,8 @@ header .icons #menu-bars {
 
 .home .home-slider .slider .image img {
     /* width: 100%; */
-    width: 300px;
+    width: 390px;
+    margin-left: 100px;
 }
 
 .home .home-slider .slider .content span {
@@ -435,7 +436,12 @@ header .icons #menu-bars {
     font-size: 2.5rem;
     display: block;
 }
-
+.dishes .box-container .box p{
+    color: var(--line-color);
+    font-size: 1.3rem;
+    /* padding: 0.5rem 0; */
+    /* line-height: 1.5rem; */
+} 
 .dishes .box-container .box img {
     height: 60%;
     width: 100%;

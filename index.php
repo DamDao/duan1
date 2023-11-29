@@ -121,6 +121,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     echo "Vui lòng đăng nhập trước nhập để thêm sản phẩm vào giỏ hàng - " . "<a href='?act=dangnhap'>Đăng nhập ngay!!!</a>";
                 }
             }
+            
             include 'view/cart/viewcart.php';
 
             break;
@@ -129,8 +130,8 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             if (isset($_GET['cart_id'])) {
                 // unset($_SESSION['cart']);
                 // if (isset($_SESSION['my_cart'][$_GET['cart_id']])) {
-                    // unset($_SESSION['my_cart'][$_GET['cart_id']]);
-                    array_splice($_SESSION['my_cart'], $_GET['cart_id'], 1);
+                // unset($_SESSION['my_cart'][$_GET['cart_id']]);
+                array_splice($_SESSION['my_cart'], $_GET['cart_id'], 1);
                 // }
                 include "view/cart/viewcart.php";
             }
@@ -138,14 +139,14 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             break;
 
         case 'bill':
-            include 'view/cart/bill.php';
+                include 'view/cart/bill.php';
             break;
 
         case 'confirmbill':
-            if (isset($_POST['gui'])&&($_POST['gui'])) {
+            if (isset($_POST['gui']) && ($_POST['gui'])) {
                 if (isset($_SESSION['user'])) {
                     $iduser = $_SESSION['user']['tk_id'];
-                }else{
+                } else {
                     $id = 0;
                 }
                 $name = $_POST['userbuy'];
@@ -158,10 +159,9 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
 
                 // tao bill
                 $idbill = insert_bill($name, $address, $tel, $email, $pttt, $tongdonhang, $ngaydathang, $tk_id);
-                         
-                
+
                 foreach ($_SESSION['my_cart'] as $cart) {
-                    insert_cart($cart[0],$_SESSION['user']['tk_id'], $idbill, $cart[1], $cart[3], $cart[4], $cart[5], $cart[2]);
+                    insert_cart($cart[0], $_SESSION['user']['tk_id'], $idbill, $cart[1], $cart[3], $cart[4], $cart[5], $cart[2]);
                 }
                 $_SESSION['my_cart'] = [];
             }
@@ -170,63 +170,16 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             include 'view/cart/ctbill.php';
             break;
 
-            case 'mybill':
-                if (isset($_SESSION['user'])) {
-                  $listbill=loadall_bill($_SESSION['user']);
-                  include 'view/cart/mybill.php';
-                }else{
-                  echo "   <p class='text-danger mt-5 text-center'>Bạn chưa có đơn hàng nào!!!</p>";
-                }
-                break;
-        //
+        case 'mybill':
+            if (isset($_SESSION['user'])) {
+                $listbill = loadall_bill($_SESSION['user']);
+                include 'view/cart/mybill.php';
+            } else {
+                echo "   <p class='text-danger mt-5 text-center'>Bạn chưa có đơn hàng nào!!!</p>";
+            }
+            break;
 
-
-        // case 'add_cart':
-
-        //     if (isset($_POST['add_cart']) && ($_POST['add_cart'])) {
-        //         if (isset($_SESSION['user']) && ($_SESSION['user'])) {
-        //             $id = $_POST['id'];
-        //             $cart_name = $_POST['name'];
-        //             $cart_img = $_POST['img'];
-        //             $cart_price = $_POST['price'];
-        //             $cart_soluong = 1;
-        //             $cart_thanhtien = $price * $soluong;
-        //             //    $cartr= insertcart($cart_name, $cart_img, $cart_price, $cart_soluong, $cart_thanhtien);
-        //             //    var_dump( $cartr);
-        //             //    echo $cartr;
-        //             //    die();
-        //             //     $sp_add =  $cartr;
-        //             $spadd = [$idsp, $cart_name, $cart_img, $cart_price, $cart_soluong, $cart_thanhtien];
-        //             array_push($_SESSION['my_cart'], $sp_add);
-        //         } else {
-        //             echo "<h1>Đăng nhập để đặt hàng</h1>";
-        //             include "view/cart/viewcart.php";
-        //         }
-
-        //     }
-        //     include "view/cart/viewcart.php";
-        //     break;
-
-        // case 'bill':
-        //     if (isset($_SESSION['user']) && ($_SESSION['my_cart'] != [])) {
-
-        //         include "view/cart/bill.php";
-        //     } else {
-        //         echo "<h1>Đăng nhập và thêm sản phẩm vào giỏ hàng để tiếp tục thanh toán</h1>";
-        //         include "view/cart/viewcart.php";
-        //     }
-        //     break;
-
-        // case 'delete_cart':
-        //     if (isset($_GET['idcart'])) {
-        //         array_splice($_SESSION['my_cart'], $_GET['idcart'], 1);
-
-        //     } else {
-        //         $_SESSION['my_cart'] = [];
-        //     }
-        //     // include "view/cart/viewcart.php";
-        //     header("Location:index.php?act=add_cart");
-        //     break;
+            
         case 'dangxuat':
             session_destroy();
             header('Location:index.php');
