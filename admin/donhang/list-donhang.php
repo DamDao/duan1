@@ -16,6 +16,7 @@
             <thead>
                 <tr class="text-center">
                     <th class="text-center" scope="col">MÃ ĐƠN HÀNG</th>
+                    <th class="text-center" scope="col">TÊN SẢN PHẨM</th>
                     <th class="text-center" scope="col">KHÁCH HÀNG</th>
                     <th class="text-center" scope="col">SỐ LƯỢNG</th>
                     <th class="text-center" scope="col">GIÁ TRỊ ĐƠN HÀNG</th>
@@ -29,16 +30,19 @@
                 if (!$listbill) {
                     $m_donhang = "Chưa có đơn hàng nào";
                 } else {
-                    foreach ($listbill as $value):
+                    foreach ($listbillct as $value):
                         extract($value);
                         // var_dump($value);
                         // die();
-                        $soluong = loadall_cart_count($bill_id);
+                        // $soluong = loadall_cart_count($bill_id);
                         $tt = trangthai($bill_trangthai);
                         ?>
                         <tr>
                             <td class="">
-                                <?= "DA1-$bill_id"; ?>
+                                <?= "DH-$bill_id"; ?>
+                            </td>
+                            <td class="">
+                                <?= "$cart_name"; ?>
                             </td>
                             <td class=" text-md-start">
                                 Tên:<span>
@@ -55,7 +59,7 @@
                                 </span>
                             </td>
                             <td class="">
-                                <?= $soluong; ?>
+                                <?= $cart_soluong; ?>
                             </td>
                             <td class="">
                                 <?= number_format($bill_tongtien); ?> VND

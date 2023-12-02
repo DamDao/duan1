@@ -93,7 +93,7 @@ marquee{
 }
 .frm_dm table tr th,td{
    padding: 15px;
-    text-align: center;
+    /* text-align: center; */
 
 }
 .frm_dm table th{
@@ -132,7 +132,6 @@ marquee{
     margin-right: 550px;
 }
 
-
 .frm_content {
 text-align: center;
 }
@@ -158,6 +157,11 @@ text-align: center;
     border-color: green;
 }
 
+.edit_hh input[type="text"]{
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+}
 
 .add_css{
     margin-top: 25px;

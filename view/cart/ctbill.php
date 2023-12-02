@@ -62,7 +62,7 @@
                     <!-- <table class="table_ctbill" style="width: 50%; margin: 5% 26%; font-size: 16px;"> -->
                     <tr>
                         <td>Mã đơn hàng</td>
-                        <td>DA1-
+                        <td>DH-
                             <?= $idbill ?>
                         </td>
                     </tr>

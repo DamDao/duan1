@@ -518,6 +518,7 @@ header .icons #menu-bars {
     border: 1rem solid rgba(0, 0, 0, .2);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
+    text-align: center;
 }
 
 .menu .box-container .box .image {

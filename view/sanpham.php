@@ -74,7 +74,7 @@
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
                             <p>Tác Giả: '.$sp_tacgia.'</p>
-                                <span class="price">' . $sp_price . '</span>
+                                <span class="price">' . number_format($sp_price) . ' VND</span>
                                 <form action="?act=addtocart" method="POST">
                                <input type="hidden" name="amount" id="amount" value="1">
                                 <input type="hidden" name="idsp" value="' . $sp_id . '">
@@ -170,7 +170,7 @@
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
                             <p>Tác Giả: '.$sp_tacgia.'</p>
-                            <span class="price">' . $sp_price . '</span>
+                            <span class="price">' . number_format($sp_price) . ' VND</span>
                             <form action="?act=addtocart" method="POST">
                             <input type="hidden" name="amount" id="amount" value="1">
                              <input type="hidden" name="idsp" value="' . $sp_id . '">

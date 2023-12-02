@@ -14,7 +14,7 @@
     </div>
   </div>
 </div>
-<script>
+<!-- <script>
     let amountElement = document.getElementById('amount');
     let amount = amountElement.value;
     // console.log(amount);
@@ -39,4 +39,4 @@
         render(amount);
 
     });
-</script>
+</script> -->

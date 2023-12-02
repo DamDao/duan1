@@ -1,6 +1,6 @@
 <?php
-    function insert_sanpham($tenloai,$giasp,$hinh,$tacgia,$mota,$iddm){
-        $sql = "INSERT INTO san_pham(sp_name,sp_price,sp_img,sp_tacgia,sp_mota,dm_id) VALUES('$tenloai','$giasp','$hinh', '$tacgia','$mota','$iddm')";
+    function insert_sanpham($tenloai,$giasp,$hinh,$tacgia,$mota,$soluong,$iddm){
+        $sql = "INSERT INTO san_pham(sp_name,sp_price,sp_img,sp_tacgia,sp_mota,sp_soluong,dm_id) VALUES('$tenloai','$giasp','$hinh', '$tacgia','$mota','$soluong','$iddm')";
         pdo_execute($sql);
     }
 
@@ -19,7 +19,7 @@
         return $onesanpham;
     }
     function loadall_sanpham_home(){
-        $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY sp_id DESC LIMIT 0,9";
+        $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY sp_id DESC ";
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }

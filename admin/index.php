@@ -5,12 +5,22 @@ include "../model/sanpham.php";
 include "../model/taikhoan.php";
 include "../model/cart.php";
 include "../model/binhluan.php";
+include "../model/thongke.php";
 include "header.php";
 // controller
 
-// if (!isset($_SESSION['user'])) {
-//     header("Location:index.php?act=dangnhap");
-// }
+if (!isset($_SESSION['user'])) {
+    header("Location:account/login.php");
+    // header("Location:index.php");
+}
+if (isset($_SESSION['user'])) {
+    // var_dump($_SESSION['user']);
+    if (check_role($_SESSION['user']['tk_name']) == 1) {
+        header("location:/index.php");
+        die;
+    }
+}
+
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -75,6 +85,7 @@ if (isset($_GET['act'])) {
                     $tensp = $_POST['tensp'];
                     $giasp = $_POST['giasp'];
                     $mota = $_POST['mota'];
+                    $soluong = $_POST['soluong'];
                     $tacgia = $_POST['tacgia'];
                     $hinh = $_FILES['hinh']['name'];
                     $dir = "../upload/";
@@ -84,7 +95,7 @@ if (isset($_GET['act'])) {
                     } else {
 
                     }
-                    insert_sanpham($tensp, $giasp, $hinh, $tacgia, $mota, $iddm);
+                    insert_sanpham($tensp, $giasp, $hinh, $tacgia, $mota, $soluong, $iddm);
                     $thongbao = "Thêm thành công";
                 } else {
                     $thongbaor = 'Vui lòng nhập tên và giá sản phẩm';
@@ -171,31 +182,17 @@ if (isset($_GET['act'])) {
             // header("Location:list.php");
             break;
 
-
-        // case 'dangnhap':
-        //     if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
-        //         $user = $_POST['user'];
-        //         $pass = $_POST['pass'];
-        //         $check_user = check_user($user, $pass);
-        //         // if (is_array($check_user) && ($check_user['tk_role'] == 0)) {
-        //         //     $_SESSION['user'] = $check_user;
-        //         //     header('Location:index.php');
-        //         // } 
-        //         if (is_array($check_user) && ($check_user['tk_role'] != 0)) {
-        //             header('Location:index.php');
-        //         } else {
-        //             $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra lại user or pass";
-        //             # code...
-        //         }
-        //     }
-        //     include "account/login.php";
-        //     break;
-
-
-
+        case 'delete_tk':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_tk($_GET['id']);
+            }
+            $list_taikhoan = loadall_taikhoan();
+            include "taikhoan/list.php";
+            break;
         // DON HANG
         case 'donhang':
             $listbill = loadall_bill(0);
+            $listbillct = loadall_billct(0,0);
             include 'donhang/list-donhang.php';
             break;
 
@@ -219,9 +216,41 @@ if (isset($_GET['act'])) {
             }
             break;
 
+        case 'thongke':
+            $list_thongke = loadall_thongke();
+            include "thongke/list.php";
+            // header("Location:list.php");
+            break;
+
+        case 'bieudo':
+
+            $list_thongke = loadall_thongke();
+            include "thongke/bieudo.php";
+            // header("Location:list.php");
+            break;
+        case 'dangnhap':
+            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $check_user = check_user($user, $pass);
+                // if (is_array($check_user) && ($check_user['tk_role'] == 0)) {
+                //     $_SESSION['user'] = $check_user;
+                //     header('Location:index.php');
+                // } 
+                if (is_array($check_user) && ($check_user['tk_role'] != 0)) {
+                    header('Location:index.php');
+                } else {
+                    $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra lại user or pass";
+                    # code...
+                }
+            }
+            include "account/login.php";
+            break;
+
 
         case 'dangxuat':
-            session_unset();
+            unset($_SESSION['adm']);
+            unset($_SESSION['check_valid']);
             header('Location:../index.php');
             break;
         default:

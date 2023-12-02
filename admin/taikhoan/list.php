@@ -13,13 +13,12 @@
                     <th>ĐỊA CHỈ</th>
                     <th>ĐIỆN THOẠI</th>
                     <th>VAI TRÒ</th>
-                    <!-- <th>THAO TÁC</th> -->
+                    <th>THAO TÁC</th>
                 </tr>
                 <?php
                     foreach ($list_taikhoan as $taikhoan) {
                         extract($taikhoan);
-                        $edit_tk="index.php?act=edit_tk&id=".$tk_id;
-                        $delete_tk="index.php?act=deleted_tk&id=".$tk_id;
+                        $delete_tk="index.php?act=delete_tk&id=".$tk_id;
                 echo         
                 '<tr>
                     <td>'.$tk_id.'</td>
@@ -29,10 +28,10 @@
                     <td>'.$tk_address.'</td>
                     <td>'.$tk_tel.'</td>
                     <td>'.$tk_role.'</td>
+                    <td> <a href="'.$delete_tk.'"><i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>
                 </tr>';
                     }
                 ?>
-             <!-- <td> <a href="'.$edit_tk.'"><input type="button" value="Sửa"></a> | <a href="'.$delete_tk.'"> <input type="button" value="Xóa"></a> </td> -->
             </table>
         </div>
         <!-- <div class="row mb10">

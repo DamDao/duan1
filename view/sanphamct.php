@@ -301,7 +301,7 @@
             </div>
             <div class="price">
                 <p>GIÁ BÁN :
-                    ' . $sp_price . '<sup></sup>
+                    ' . number_format($sp_price) . ' VND<sup></sup>
                 </p>
             </div>
             <div class="quantyti">
@@ -316,13 +316,24 @@
             </div>
             <div class="tinhtrang">
                 <p class="tinhtrang1">Tình Trạng:</p>
-                <p class="tinhtrang2">còn hàng </p>
-            </div>
-            <div class="dathang">
-                <button type="submit" name="addtocart" class="btn btn-success ">Thêm giỏ hàng</button>
-                <button class="muangay ">
-                    <a  href="">MUA NGAY</a>
-                </button>
+                <p class="tinhtrang2">';
+              if (isset($sp_soluong)&&($sp_soluong>0)) {
+                // echo 'còn'.$sp_soluong.'sản phẩm';
+                echo 'còn hàng';
+                echo'<div class="dathang">
+                    <button type="submit" name="addtocart" class="btn btn-success ">Thêm giỏ hàng</button>
+                    
+                </div>';
+              }else {
+                // echo $sp_soluong;
+                echo 'hết hàng
+                <div class="dathang">
+                    <button class="btn btn-success "><a href="">Hết hàng</a></button>
+                    
+                </div>
+                ';
+              }
+              echo ' </p>
             </div>
 
             <div class="thongtin">
@@ -346,6 +357,7 @@
         </div>
         </from>'; ?>
     </div>
+    <!--dong 323 mua ngay <button type="submit" name="buy" class="btn btn-success " class="muangay "> MUA NGAY</button> -->
 </div>
 <div class="sp_cungloai">
     <div class="tietl_cl">
@@ -364,7 +376,7 @@
                                     <a href="' . $linksp . '"><img src="' . $sp_img . '" alt=""></a>
                                         </div>
                                         <div class="tiet_spcl">
-                                            <span class="price">$ ' . $sp_price . '</span>
+                                            <span class="price"> ' . number_format($sp_price) . ' VND</span>
                                             <h2><a href="' . $linksp . '">' . $sp_name . '</a></h2>
                                         </div>
                                         

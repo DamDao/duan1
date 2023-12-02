@@ -17,7 +17,14 @@ function viewcart($del)
   $stt = 1;
   $cart_id = 0;
   $tong = 0;
+
+  // $onesp = loadone_sanpham(0);
+  // // $dssp = loadall_sanpham(0, '');
+  // extract($onesp);
+  // var_dump($onesp);
+  // die;
   foreach ($_SESSION['my_cart'] as $value) {
+
     // var_dump($_SESSION['my_cart']);
     // var_dump($value[4] * $value[3]);
     // die();
@@ -41,7 +48,9 @@ function viewcart($del)
                           >
                         </td>
                         <td style="padding: 13px;">' . number_format($value[3]) . ' VNĐ</td>
-                        <td style="padding: 13px;">' . $value[4] . '</td>                        
+                        <td style="padding: 13px;">
+                        ' . $value[4] . '
+                        </td>                        
                         <td style="padding: 13px;">' . number_format($thanhtien) . ' VNĐ</td>
                         <td style="padding: 13px;">' . $btn_xoa . '</td>
              </tr>';
@@ -54,6 +63,36 @@ function viewcart($del)
               <td></td> 
           </tr>
           </tbody>';
+  echo '
+  
+            <script>
+            let amountElement = document.getElementById("amount");
+            let amount = amountElement.value;
+            // console.log(amount);
+            let render = (amount) => {
+                amountElement.value = amount
+            }
+            //HandelPlus
+            let handlePlus = () => {
+                amount++;
+                render(amount);
+            }
+            //handel Minus
+            let handleMinus = () => {
+                if (amount > 1)
+                    amount--;
+                render(amount);
+            }
+            amountElement.addEventListener("input", () => {
+                amount = amountElement.value;
+                amount = parseInt(amount);
+                amount = (isNaN(amount) || amount == 0) ? 1 : amount;
+                render(amount);
+
+            })
+          </script>
+
+  ';
 }
 
 
@@ -80,7 +119,6 @@ function loadall_cart($id)
   // $result = pdo_query_all($sql);
   return $result;
 }
-
 function loadall_cart_count($id)
 {
   $sql = "select * from cart where bill_id=$id";
@@ -110,7 +148,7 @@ function loadall_bill($iduser)
   $sql = "select * from bill where 1";
   if ($iduser > 0) {
     // var_dump($iduser);
-    $sql .= " and tk_id=".$iduser['tk_id'];
+    $sql .= " and tk_id=" . $iduser['tk_id'];
   } else {
     $sql .= "";
   }
@@ -119,7 +157,17 @@ function loadall_bill($iduser)
   return $result;
 }
 
+function loadall_billct($bill_id, $bill)
+{
+  $sql = "SELECT * FROM bill LEFT JOIN cart ON bill.bill_id = cart.bill_id";
+  if ($bill > 0) {
+    $sql .= " WHERE bill.bill_id =" . $bill_id;
+  }
 
+  $result = pdo_query($sql);
+
+  return $result;
+}
 // function loadall_bill($iduser)
 // {
 //   $sql = "SELECT * FROM bill 

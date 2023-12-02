@@ -29,10 +29,12 @@
                     <th>TÊN SẢN PHẨM</th>
                     <th>GIÁ SẢN PHẨM</th>
                     <th>TÁC GIẢ</th>
+                    <th>SỐ LƯỢNG</th>
                     <th>LƯỢT XEM</th>
                     <th>THAO TÁC</th>
                 </tr>
                 <?php
+                   $listdanhmuc = loadall_danhmuc();
                 foreach ($listsanpham as $sanpham) {
                     extract($sanpham);
                     $editsp = "index.php?act=editsp&id=".$sp_id;
@@ -55,6 +57,7 @@
                             <td>' . $sp_name . '</td>
                             <td>' . $sp_price . '</td>
                             <td>' . $sp_tacgia . '</td>
+                            <td>' . $sp_soluong . '</td>
                             <td>' . $sp_luotxem . '</td>
                             ';        
                 ?>
