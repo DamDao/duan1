@@ -38,6 +38,14 @@ function check_user($user, $pass)
     $check = pdo_query_one($sql);
     return $check;
 }
+
+function check_email($email)
+{
+    // $iddm = $_GET['id'];
+    $sql = "SELECT * FROM tai_khoan WHERE tk_email='$email'";
+    $check = pdo_query_one($sql);
+    return $check;
+}
 // function account_adm($user, $pass)
 // {
 //     $sql = "SELECT * FROM `tai_khoan` where `tk_name`='$user' and `tk_pass`='$pass'and `tk_role`=1";

@@ -99,6 +99,7 @@
                 <a  href="index.php?act=dangnhap">Đăng nhập</a> <!--Chèn link dẫn đến file đăng nhập vào đây -->
                 <a  href="index.php?act=dangky">Đăng ký</a> <!--Chèn link dẫn đến file đăng ký vào đây -->
                 <a  href="index.php?act=dangxuat">Đăng xuất</a>
+                <a href="index.php?act=quenmk">Quên mật khẩu</a>
             </div>
         </div>';
        }

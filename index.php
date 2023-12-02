@@ -106,6 +106,19 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             include "view/account/update_act.php";
             break;
 
+        case 'quenmk':
+            if (isset($_POST['gui_email']) && ($_POST['gui_email'])) {
+                $email = $_POST['email'];
+                $check_email = check_email($email);
+                if (is_array($check_email)) {
+                    $thongbao = "Mật khẩu của bạn là" . $check_email['tk_pass'];
+                } else {
+                    $thongbao = "Email này không tồn tại";
+                }
+            }
+            include "view/account/quenmk.php";
+            break;
+
         case 'addtocart':
             if (isset($_POST['addtocart'])) {
                 if (isset($_SESSION['user'])) {
@@ -273,7 +286,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     update_dh($idbill, 4);
                 } else {
                     // Không cho phép hủy đơn hàng
-                    echo "Không thể hủy đơn hàng với trạng thái hiện tại là: " ;
+                    echo "Không thể hủy đơn hàng với trạng thái hiện tại là: ";
                 }
                 header("Location: index.php?act=mybill");
             }
