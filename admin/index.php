@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
@@ -8,17 +9,11 @@ include "../model/binhluan.php";
 include "../model/thongke.php";
 include "header.php";
 // controller
-
+// ob_start();
+// session_start();
 if (!isset($_SESSION['user'])) {
     header("Location:account/login.php");
     // header("Location:index.php");
-}
-if (isset($_SESSION['user'])) {
-    // var_dump($_SESSION['user']);
-    if (check_role($_SESSION['user']['tk_name']) == 1) {
-        header("location:/index.php");
-        die;
-    }
 }
 
 if (isset($_GET['act'])) {
@@ -215,6 +210,7 @@ if (isset($_GET['act'])) {
                 header("location:index.php?act=donhang");
             }
             break;
+            
 
         case 'thongke':
             $list_thongke = loadall_thongke();
@@ -249,8 +245,7 @@ if (isset($_GET['act'])) {
 
 
         case 'dangxuat':
-            unset($_SESSION['adm']);
-            unset($_SESSION['check_valid']);
+            session_destroy();
             header('Location:../index.php');
             break;
         default:

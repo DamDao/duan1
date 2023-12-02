@@ -43,6 +43,9 @@
         <option value="3" <?php echo ($bill_trangthai == 3) ? "selected" : ""; ?>>
           Đơn hàng giao thành công
         </option>
+        <option value="4" <?php echo ($bill_trangthai==4) ? "selected" : ""; ?>>
+          Hủy đơn hàng
+          </option>
       </select>
     </div>
     <button type="submit" name="updatedh" class="add_css">Cập Nhật</button>

@@ -14,6 +14,7 @@
                     <th style=" border-bottom:1px solid green; " class="text-center">Tổng giá trị đơn hàng</th>
                     <th style=" border-bottom:1px solid green; " class="text-center">Ngày đặt</th>
                     <th style=" border-bottom:1px solid green; " class="text-center">Tình trạng đơn hàng</th>
+                    <th style=" border-bottom:1px solid green; " class="text-center">Trạng thái</th>
                     <!-- <th style=" border-bottom:1px solid green" class="text-center">Bill Cỏmim</th> -->
                 </tr>
             </thead>
@@ -22,10 +23,9 @@
                 foreach ($listbillct as $value):
                     extract($value);
                     // var_dump($value);
-                    $huydh = "index.php?act=huyhh&id=" . $bill_id;
                     $trangthai = trangthai($bill_trangthai);
                     // $soluong = loadall_cart_count($bill_id)
-                        ?>
+                    ?>
                     <tr>
                         <td style="padding:10px" class="text-center">KH-
                             <?= $tk_id; ?>
@@ -54,6 +54,17 @@
                         </td>
                         <td style="padding:10px" class="text-center">
                             <?= $trangthai ?>
+                        </td>
+                        <td  style="padding:10px" class="text-center">
+                            <?php
+                            if ($trangthai == 'Đơn hàng giao thành công') {
+                                echo 'Đã được thanh toán';
+
+                            } else if ($trangthai == 'Hủy đơn hàng') {
+                                echo 'Đã hủy';
+                            } else {
+                                echo 'Đơn hàng chưa được thanh toán';
+                            } ?>
                         </td>
                         <!-- <td class="text-center"><a href="index.php?act=ls_bill">Chi tiết </a></td>  -->
                     </tr>

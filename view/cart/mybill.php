@@ -10,6 +10,7 @@
                 <th style=" border-bottom:1px solid green; " class="text-center">Tổng giá trị đơn hàng</th>
                 <th style=" border-bottom:1px solid green; " class="text-center">Ngày đặt</th>
                 <th style=" border-bottom:1px solid green; " class="text-center">Tình trạng đơn hàng</th>
+                <th style=" border-bottom:1px solid green; " class="text-center">Trạng thái</th>
                 <!-- <th style=" border-bottom:1px solid green" class="text-center">Bill Cỏmim</th> -->
             </tr>
         </thead>
@@ -17,7 +18,7 @@
             <?php
             foreach ($listbill as $value):
                 extract($value);
-                $huydh="index.php?act=huyhh&id=".$bill_id;
+                $huydh = "index.php?act=huydh&id=" . $bill_id;
                 $lsbill="index.php?act=ls_bill&id=".$bill_id;
                 // var_dump($value);
                 $trangthai=trangthai($bill_trangthai);
@@ -29,7 +30,9 @@
                 <td style="padding:10px" class="text-center"><?=number_format($bill_tongtien)?>vnd</td>
                 <td style="padding:10px" class="text-center"><?=$bill_ngaydat;?></td>
                 <td style="padding:10px" class="text-center"><?=$trangthai?></td>
+                <td><a href="<?= $huydh ?>" class="btn2 btn-success">Hủy đơn</a></td>
                 <td class="text-center"><a href="<?=$lsbill?>">Chi tiết </a></td> 
+
             </tr>
             <?php endforeach;?>
         </tbody>

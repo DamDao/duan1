@@ -257,8 +257,34 @@ function bill_chitiet($listbill)
           </tbody>';
 }
 
+// function trangthai($trangthai)
+// {
+//   switch ($trangthai) {
+
+//     case '0':
+//       $m_tt = "Đơn hàng chờ xác nhận";
+//       break;
+//     case '1':
+//       $m_tt = "Đơn hàng đã được xác nhận";
+//       break;
+//     case '2':
+//       $m_tt = "Đơn hàng đang được giao";
+//       break;
+//     case '3':
+//       $m_tt = "Đơn hàng giao thành công";
+//       break;
+//     case '4':
+//       $m_tt = "Hủy đơn hàng";
+//       break;
+//   }
+//   return $m_tt;
+// }
+
+
 function trangthai($trangthai)
 {
+  // $m_tt = ""; // Khởi tạo $m_tt với một chuỗi rỗng hoặc giá trị mặc định khác
+
   switch ($trangthai) {
     case '0':
       $m_tt = "Đơn hàng chờ xác nhận";
@@ -272,9 +298,14 @@ function trangthai($trangthai)
     case '3':
       $m_tt = "Đơn hàng giao thành công";
       break;
+    case '4':
+      $m_tt = "Hủy đơn hàng";
+      break;
   }
+
   return $m_tt;
 }
+
 
 function update_dh($idbill, $trangthai)
 {

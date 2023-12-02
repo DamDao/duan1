@@ -106,43 +106,43 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             include "view/account/update_act.php";
             break;
 
-            case 'addtocart':
-                if (isset($_POST['addtocart'])) {
-                    if (isset($_SESSION['user'])) {
-                        $idsp = $_POST['idsp'];
-                        $namesp = $_POST['namesp'];
-                        $img = $_POST['img'];
-                        $price = $_POST['price'];
-                        $soluong = $_POST['amount'];
-            
-                        // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
-                        $product_exists = false;
-                        foreach ($_SESSION['my_cart'] as &$item) {
-                            if ($item[0] == $idsp) {
-                                $item[4] += $soluong; // Tăng số lượng
-                                $item[5] = $item[4] * $item[3]; // Cập nhật thành tiền
-                                $product_exists = true;
-                                break;
-                            }
+        case 'addtocart':
+            if (isset($_POST['addtocart'])) {
+                if (isset($_SESSION['user'])) {
+                    $idsp = $_POST['idsp'];
+                    $namesp = $_POST['namesp'];
+                    $img = $_POST['img'];
+                    $price = $_POST['price'];
+                    $soluong = $_POST['amount'];
+
+                    // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
+                    $product_exists = false;
+                    foreach ($_SESSION['my_cart'] as &$item) {
+                        if ($item[0] == $idsp) {
+                            $item[4] += $soluong; // Tăng số lượng
+                            $item[5] = $item[4] * $item[3]; // Cập nhật thành tiền
+                            $product_exists = true;
+                            break;
                         }
-            
-                        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
-                        if (!$product_exists) {
-                            $thanhtien = $price * $soluong;
-                            $spadd = [$idsp, $namesp, $img, $price, $soluong, $thanhtien];
-                            array_push($_SESSION['my_cart'], $spadd);
-                        }
-            
-                        // echo "<pre>";
-                        // var_dump($_SESSION['my_cart']);
-                        // die;
-                    } else {
-                        echo "<h2>Vui lòng đăng nhập trước nhập để thêm sản phẩm vào giỏ hàng - <a href='?act=dangnhap'>Đăng nhập ngay!!!</a></h2>";
                     }
+
+                    // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
+                    if (!$product_exists) {
+                        $thanhtien = $price * $soluong;
+                        $spadd = [$idsp, $namesp, $img, $price, $soluong, $thanhtien];
+                        array_push($_SESSION['my_cart'], $spadd);
+                    }
+
+                    // echo "<pre>";
+                    // var_dump($_SESSION['my_cart']);
+                    // die;
+                } else {
+                    echo "<h2>Vui lòng đăng nhập trước nhập để thêm sản phẩm vào giỏ hàng - <a href='?act=dangnhap'>Đăng nhập ngay!!!</a></h2>";
                 }
+            }
             include 'view/cart/viewcart.php';
-                break;
-            
+            break;
+
 
         // case 'addtocart':
         //     if (isset($_POST['addtocart'])) {
@@ -239,10 +239,46 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
         case 'ls_bill':
             if (isset($_GET['id']) && !empty($_GET['id'])) {
                 $idbill = $_GET['id'];
-                $listbillct = loadall_billct($idbill,1);
+                $listbillct = loadall_billct($idbill, 1);
             }
             include "view/cart/lsbill.php";
             break;
+
+
+        // case 'huydh':
+        //     if (isset($_GET['id']) && !empty($_GET['id'])) {
+        //             $idbill = $_GET['id'];
+        //             if ($trangthai==0) {
+        //                 $trangthai='4';
+        //             }
+        //             else {
+        //                 echo "Koo thể hủy";
+        //             }
+        //             update_dh($idbill, $trangthai);
+
+        //             header("Location: index.php?act=mybill");
+
+
+        //         // }
+        //     }
+        // break;
+
+        case 'huydh':
+            if (isset($_GET['id']) && !empty($_GET['id'])) {
+                $idbill = $_GET['id'];
+                $dh = loadone_bill($idbill);
+                extract($dh);
+                // var_dump($dh);
+                if ($bill_trangthai == 0) {
+                    update_dh($idbill, 4);
+                } else {
+                    // Không cho phép hủy đơn hàng
+                    echo "Không thể hủy đơn hàng với trạng thái hiện tại là: " ;
+                }
+                header("Location: index.php?act=mybill");
+            }
+            break;
+
         case 'dangxuat':
             session_destroy();
             header('Location:index.php');
