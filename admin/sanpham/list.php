@@ -55,7 +55,7 @@
                        echo
                             '<td>' . $hinh . '</td>
                             <td>' . $sp_name . '</td>
-                            <td>' . $sp_price . '</td>
+                            <td>' . number_format($sp_price) . '</td>
                             <td>' . $sp_tacgia . '</td>
                             <td>' . $sp_soluong . '</td>
                             <td>' . $sp_luotxem . '</td>

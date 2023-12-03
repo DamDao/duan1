@@ -307,7 +307,7 @@
             <div class="quantyti">
                 <p style="font-weight: bold;">SỐ LƯỢNG : </p>
                 <input type="text" name="" onclick="handleMinus()" value="-" readonly>
-                <input type="text" name="amount" id="amount" value="1">
+                <input type="text" name="amount" id="amount" maxlength="'.$sp_soluong.'" value="1">
                 <input type="text" name="" onclick="handlePlus()"  value="+" readonly>
                 <input type="hidden" name="idsp" value="' . $sp_id . '">
                 <input type="hidden" name="namesp" value="' . $sp_name . '">
@@ -359,6 +359,7 @@
     </div>
     <!--dong 323 mua ngay <button type="submit" name="buy" class="btn btn-success " class="muangay "> MUA NGAY</button> -->
 </div>
+
 <div class="sp_cungloai">
     <div class="tietl_cl">
         <h2>Sản Phẩm Cùng Loại </h2>

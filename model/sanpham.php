@@ -48,11 +48,11 @@
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }
-    function update_sanpham($id, $tensp, $giasp, $hinh, $tacgia, $mota, $iddm){
+    function update_sanpham($id, $tensp, $giasp, $hinh, $tacgia,$soluong, $mota, $iddm){
         if ($hinh !='') {
-            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp', `sp_img`= '$hinh', `sp_tacgia`= '$tacgia', `sp_mota`= '$mota',`dm_id` = '$iddm' WHERE `sp_id`=".$id;           
+            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp', `sp_img`= '$hinh', `sp_tacgia`= '$tacgia', `sp_soluong`='$soluong',`sp_mota`= '$mota',`dm_id` = '$iddm' WHERE `sp_id`=".$id;           
         }else {
-            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp',`sp_tacgia`= '$tacgia', `sp_mota`= '$mota', `dm_id`= '$iddm' WHERE `sp_id`=" .$id;           
+            $sql = "UPDATE `san_pham` SET  `sp_name`= '$tensp', `sp_price`= '$giasp',`sp_tacgia`= '$tacgia', `sp_soluong`='$soluong',`sp_mota`= '$mota', `dm_id`= '$iddm' WHERE `sp_id`=" .$id;           
         }
         // echo $sql;die;
          pdo_execute($sql);

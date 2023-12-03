@@ -2,7 +2,7 @@
 
     <div class="swiper mySwiper home-slider">
 
-    <!-- slider -->
+        <!-- slider -->
 
         <div class="swiper-wrapper wrapper">
             <?php
@@ -73,15 +73,29 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
-                            <p>Tác Giả: '.$sp_tacgia.'</p>
+                            <p>Tác Giả: ' . $sp_tacgia . '</p>
                                 <span class="price">' . number_format($sp_price) . ' VND</span>
                                 <form action="?act=addtocart" method="POST">
                                <input type="hidden" name="amount" id="amount" value="1">
                                 <input type="hidden" name="idsp" value="' . $sp_id . '">
                                 <input type="hidden" name="namesp" value="' . $sp_name . '">
                                 <input type="hidden" name="img" value="' . $sp_img . '">
-                                <input type="hidden" name="price" value="' . $sp_price . '">
-                                <button type="submit" name="addtocart" class="btn btn-success ">Thêm vào giỏ hàng</button>
+                                <input type="hidden" name="price" value="' . $sp_price . '">';
+                            if (isset($sp_soluong) && ($sp_soluong > 0)) {
+                                // echo 'còn'.$sp_soluong.'sản phẩm';
+                                echo '<div class="dathang">
+                                        <button type="submit" name="addtocart" class="btn btn-success ">Thêm giỏ hàng</button>
+                                    </div>';
+                            } else {
+                                // echo $sp_soluong;
+                                echo 'hết hàng
+                                    <div class="dathang">
+                                        <button class="btn btn-success "><a href="#">Hết hàng</a></button>
+                                        
+                                    </div>
+                                    ';
+                             }
+                                echo '
                                 </form>
                         </div>
                     </div>';
@@ -169,15 +183,28 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <h3><a href="' . $linksp . '">' . $sp_name . '</a></h3>
-                            <p>Tác Giả: '.$sp_tacgia.'</p>
+                            <p>Tác Giả: ' . $sp_tacgia . '</p>
                             <span class="price">' . number_format($sp_price) . ' VND</span>
                             <form action="?act=addtocart" method="POST">
                             <input type="hidden" name="amount" id="amount" value="1">
                              <input type="hidden" name="idsp" value="' . $sp_id . '">
                              <input type="hidden" name="namesp" value="' . $sp_name . '">
                              <input type="hidden" name="img" value="' . $sp_img . '">
-                             <input type="hidden" name="price" value="' . $sp_price . '">
-                             <button type="submit" name="addtocart" class="btn btn-success ">Thêm vào giỏ hàng</button>
+                             <input type="hidden" name="price" value="' . $sp_price . '">';
+                             if (isset($sp_soluong)&&($sp_soluong>0)) {
+                                // echo 'còn'.$sp_soluong.'sản phẩm';
+                                echo'<div class="dathang">
+                                    <button type="submit" name="addtocart" class="btn btn-success ">Thêm giỏ hàng</button>
+                                </div>';
+                              }else {
+                                // echo $sp_soluong;
+                                echo 'hết hàng
+                                <div class="dathang">
+                                    <button class="btn btn-success "><a href="#">Hết hàng</a></button>
+                                </div>
+                                ';
+                              }
+                              echo '
                              </form>
                         </div>
                     </div>';

@@ -139,6 +139,7 @@ if (isset($_GET['act'])) {
                 $tensp = $_POST['tensp'];
                 $giasp = $_POST['giasp'];
                 $mota = $_POST['mota'];
+                $soluong = $_POST['soluong'];
                 $tacgia = $_POST['tacgia'];
                 $hinh = $_FILES['hinh']['name'];
                 $dir = "../upload/";
@@ -147,7 +148,7 @@ if (isset($_GET['act'])) {
                     ;
                 $listdanhmuc = loadall_danhmuc();
                 // var_dump($_POST);
-                update_sanpham($id, $tensp, $giasp, $hinh, $tacgia, $mota, $iddm);
+                update_sanpham($id, $tensp, $giasp, $hinh, $tacgia,$soluong, $mota, $iddm);
                 $thongbao = "cập nhật thành công";
 
             } else {

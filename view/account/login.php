@@ -6,24 +6,24 @@
         // include 'model/taikhoan.php';
         if (isset($_SESSION['user'])) {
             extract($_SESSION['user']);
-            echo    
+            echo
                 '  <h2>Thông Tin Tài Khoản</h2>
                 <div class="">
                     <div class="form-group">
                         <label for="">Tên Đăng Nhập:</label>
-                        <input type="text" name="user" value= "'.$tk_name.'" readonly>
+                        <input type="text" name="user" value= "' . $tk_name . '" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Mật Khẩu:</label>
-                        <input type="password" name="pass"  value= "'.$tk_pass.'" readonly>
+                        <input type="password" name="pass"  value= "' . $tk_pass . '" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Email:</label>
-                        <input type="text" name="user" value= "'.$tk_email.'" readonly>
+                        <input type="text" name="user" value= "' . $tk_email . '" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Số điện thoại:</label>
-                        <input type="text" name="user" value= "'.$tk_tel.'" readonly>
+                        <input type="text" name="user" value= "' . $tk_tel . '" readonly>
                     </div>
                     <a href="index.php?act=update_act">Cập nhật tài khoản</a>
                 </div>
@@ -34,7 +34,7 @@
             <form action="index.php?act=dangnhap" method="POST">
                 <div class="form-group">
                     <label for="">Tên Đăng Nhập:</label>
-                    <input type="text" name="user"  required>
+                    <input type="text" name="user" required>
                 </div>
                 <div class="form-group">
                     <label for="">Mật Khẩu:</label>
@@ -44,8 +44,11 @@
                     <input class="int_sbm" name="dangnhap" type="submit" value="Đăng Nhập"></input>
                 </div>
                 <div class="form-group">
-                    <p>Chưa có tài khoản? <a href="index.php">Quay về trang chủ <a href="index.php?act=dangky">Đăng ký
-                                ngay</a></p>
+                    <p>Chưa có tài khoản? 
+                        <a href="index.php">Quay về trang chủ 
+                            <a href="index.php?act=dangky">Đăng ký ngay</a>
+                            <a href="index.php?act=quenmk">Quên mật khẩu</a>
+                    </p>
                 </div>
             </form>
             <?php

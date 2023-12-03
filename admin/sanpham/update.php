@@ -13,7 +13,7 @@ if (is_file($hinhpath)) {
 
 <div class="">
     <div class=" frm_title">
-    <a href="index.php?act=listsp"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl"></i></a>
+        <a href="index.php?act=listsp"><i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl"></i></a>
         <h2 class="tieude">CẬP NHẬT SẢN PHẨM</h2>
     </div>
 
@@ -25,8 +25,11 @@ if (is_file($hinhpath)) {
                     <?php
                     foreach ($listdanhmuc as $danhmuc) {
                         // extract($danhmuc);
-                        if ($dm_id == $danhmuc['dm_id']) $s="selected"; else $s="";
-                        echo ' <option value="'.$danhmuc['dm_id'].'" '.$s.'>'.$danhmuc['dm_name'].'</option>';
+                        if ($dm_id == $danhmuc['dm_id'])
+                            $s = "selected";
+                        else
+                            $s = "";
+                        echo ' <option value="' . $danhmuc['dm_id'] . '" ' . $s . '>' . $danhmuc['dm_name'] . '</option>';
                     }
                     ?>
                 </select>
@@ -45,12 +48,17 @@ if (is_file($hinhpath)) {
                 <?php echo $hinh ?>
             </div>
             <div class=" mb10">
-               Tác Giả <br>
+                Tác Giả <br>
                 <input type="text" name="tacgia" value="<?php echo $sp_tacgia ?>">
+            </div>
+            <div class="mb10">
+                Số Lượng Sản Phẩm <br>
+                <input type="tex" name="soluong" value="<?= $sp_soluong?>">
             </div>
             <div class=" mb10">
                 Mô tả Sản Phẩm <br>
-                <textarea name="mota" cols="30" rows="10" value="<?php echo $sp_mota ?>"><?php echo $sp_mota ?></textarea>
+                <textarea name="mota" cols="30" rows="10"
+                    value="<?php echo $sp_mota ?>"><?php echo $sp_mota ?></textarea>
             </div>
             <div class=" mb10">
                 <input class="add_css" type="hidden" name="id" value="<?php echo $sp_id ?>" id="">
@@ -61,10 +69,10 @@ if (is_file($hinhpath)) {
         </form>
     </div>
     <?php if (isset($err)) {
-    # code...
-    echo $err;
-}
+        # code...
+        echo $err;
+    }
 
-?>
+    ?>
 </div>
 </div>
