@@ -64,33 +64,6 @@ function viewcart($del)
           </tr>
           </tbody>';
   echo '
-  
-            <script>
-            let amountElement = document.getElementById("amount");
-            let amount = amountElement.value;
-            // console.log(amount);
-            let render = (amount) => {
-                amountElement.value = amount
-            }
-            //HandelPlus
-            let handlePlus = () => {
-                amount++;
-                render(amount);
-            }
-            //handel Minus
-            let handleMinus = () => {
-                if (amount > 1)
-                    amount--;
-                render(amount);
-            }
-            amountElement.addEventListener("input", () => {
-                amount = amountElement.value;
-                amount = parseInt(amount);
-                amount = (isNaN(amount) || amount == 0) ? 1 : amount;
-                render(amount);
-
-            })
-          </script>
 
   ';
 }
@@ -306,6 +279,10 @@ function trangthai($trangthai)
   return $m_tt;
 }
 
+function upadte_soluong($sp_id,$sp_soluong){
+  $sql="UPDATE `san_pham` SET `sp_soluong` =`sp_soluong`- '$sp_soluong' WHERE `san_pham`.`sp_id` = $sp_id";
+  pdo_execute($sql);
+}
 
 function update_dh($idbill, $trangthai)
 {

@@ -226,6 +226,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     // var_dump ($cart);
                     // die;
                     insert_cart($cart[0], $_SESSION['user']['tk_id'], $idbill, $cart[1], $cart[3], $cart[4], $cart[5], $cart[2]);
+                    upadte_soluong($cart[0], $cart[4]);
                 }
                 $_SESSION['my_cart'] = [];
             }
