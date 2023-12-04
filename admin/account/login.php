@@ -5,8 +5,8 @@ include "../../model/taikhoan.php";
 if (isset($_POST['dangnhap'])) {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-    if (check_user($user, $pass)) {
-        $_SESSION['user'] = check_user($user, $pass);
+    if (check_user($user, $pass,"")) {
+        $_SESSION['user'] = check_user($user, $pass,"");
         if (check_role($user) == 1) {
             header("location: ../index.php");
             die;

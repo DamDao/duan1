@@ -75,7 +75,7 @@ if (isset($_GET['act'])) {
         case 'addsp':
             // kiểm tra ng dùng có ấn vào add ko
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
-                if (($_POST['tensp'] != "") && ($_POST['giasp'] != "")) {
+                if (($_POST['tensp'] != "") && ($_POST['giasp'] != "") && ($_POST['giasp'] > 0)) {
                     $iddm = $_POST['iddm'];
                     $tensp = $_POST['tensp'];
                     $giasp = $_POST['giasp'];
@@ -93,7 +93,7 @@ if (isset($_GET['act'])) {
                     insert_sanpham($tensp, $giasp, $hinh, $tacgia, $mota, $soluong, $iddm);
                     $thongbao = "Thêm thành công";
                 } else {
-                    $thongbaor = 'Vui lòng nhập tên và giá sản phẩm';
+                    $thongbaor = 'Vui lòng nhập tên, giá và giá sản phẩm phải lớn hơn 0';
 
                 }
 
@@ -148,7 +148,7 @@ if (isset($_GET['act'])) {
                     ;
                 $listdanhmuc = loadall_danhmuc();
                 // var_dump($_POST);
-                update_sanpham($id, $tensp, $giasp, $hinh, $tacgia,$soluong, $mota, $iddm);
+                update_sanpham($id, $tensp, $giasp, $hinh, $tacgia, $soluong, $mota, $iddm);
                 $thongbao = "cập nhật thành công";
 
             } else {
@@ -188,7 +188,7 @@ if (isset($_GET['act'])) {
         // DON HANG
         case 'donhang':
             $listbill = loadall_bill(0);
-            $listbillct = loadall_billct(0,0);
+            $listbillct = loadall_billct(0, 0);
             include 'donhang/list-donhang.php';
             break;
 
@@ -211,7 +211,7 @@ if (isset($_GET['act'])) {
                 header("location:index.php?act=donhang");
             }
             break;
-            
+
 
         case 'thongke':
             $list_thongke = loadall_thongke();
@@ -225,6 +225,11 @@ if (isset($_GET['act'])) {
             include "thongke/bieudo.php";
             // header("Location:list.php");
             break;
+
+        case 'doanhthu':
+            include 'thongke/doanhthu.php';
+            break;
+            
         case 'dangnhap':
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $user = $_POST['user'];

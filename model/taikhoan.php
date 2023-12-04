@@ -32,9 +32,12 @@ function check_role($username)
     return $result['tk_role'];
 }
 
-function check_user($user, $pass)
+function check_user($user, $pass,$email)
 {
     $sql = "SELECT * FROM tai_khoan WHERE tk_name='$user' AND tk_pass='$pass'";
+    if ($email!="") {
+        $sql.= " AND tk_email='$email'";
+    }
     $check = pdo_query_one($sql);
     return $check;
 }

@@ -17,12 +17,6 @@ function viewcart($del)
   $stt = 1;
   $cart_id = 0;
   $tong = 0;
-
-  // $onesp = loadone_sanpham(0);
-  // // $dssp = loadall_sanpham(0, '');
-  // extract($onesp);
-  // var_dump($onesp);
-  // die;
   foreach ($_SESSION['my_cart'] as $value) {
 
     // var_dump($_SESSION['my_cart']);
@@ -89,14 +83,12 @@ function loadall_cart($id)
 {
   $sql = "select * from cart where bill_id=$id";
   $result = pdo_query($sql);
-  // $result = pdo_query_all($sql);
   return $result;
 }
 function loadall_cart_count($id)
 {
   $sql = "select * from cart where bill_id=$id";
   $result = pdo_query($sql);
-  // $result = pdo_query_all($sql);
   return sizeof($result);
 }
 
@@ -126,7 +118,6 @@ function loadall_bill($iduser)
     $sql .= "";
   }
   $result = pdo_query($sql);
-  // $result = pdo_query_all($sql);
   return $result;
 }
 
@@ -141,48 +132,6 @@ function loadall_billct($bill_id, $bill)
 
   return $result;
 }
-// function loadall_bill($iduser)
-// {
-//   $sql = "SELECT * FROM bill 
-//             INNER JOIN cart ON cart.bill_id = bill.bill_id 
-//             WHERE 1";
-
-//   if ($iduser > 0) {
-//     $sql .= " AND tk_id=" . $iduser; // Chú ý: Sửa $iduser['tk_id'] thành $iduser nếu $iduser chứa giá trị tk_id.
-//   } else {
-//         $sql .= "";
-//       }
-
-//   $result = pdo_query($sql);
-//   return $result;
-// }
-
-
-// function loadall_bill($iduser)
-// {
-//   if (is_array($iduser)) {
-//   } else {
-//     // Xử lý khi $iduser không phải là mảng
-//     $sql = "SELECT * FROM bill WHERE 1";
-//     if ($iduser > 0) {
-//       $sql .= " AND tk_id=" . $iduser;
-//     }
-
-//     $result = pdo_query($sql);
-//     // $result = pdo_query_all($sql);
-//     return $result;
-//   }
-// }
-
-
-
-// function search_bill($idbill)
-// {
-//   $sql = "select * from bill where bill_id like '%" . $idbill . "%' ";
-//   $result = pdo_query_all($sql);
-//   return $result;
-// }
-
 
 function bill_chitiet($listbill)
 {
@@ -230,33 +179,9 @@ function bill_chitiet($listbill)
           </tbody>';
 }
 
-// function trangthai($trangthai)
-// {
-//   switch ($trangthai) {
-
-//     case '0':
-//       $m_tt = "Đơn hàng chờ xác nhận";
-//       break;
-//     case '1':
-//       $m_tt = "Đơn hàng đã được xác nhận";
-//       break;
-//     case '2':
-//       $m_tt = "Đơn hàng đang được giao";
-//       break;
-//     case '3':
-//       $m_tt = "Đơn hàng giao thành công";
-//       break;
-//     case '4':
-//       $m_tt = "Hủy đơn hàng";
-//       break;
-//   }
-//   return $m_tt;
-// }
-
 
 function trangthai($trangthai)
 {
-  // $m_tt = ""; // Khởi tạo $m_tt với một chuỗi rỗng hoặc giá trị mặc định khác
 
   switch ($trangthai) {
     case '0':
@@ -295,46 +220,6 @@ function delete_dh($idbill)
   $sql = "delete from bill where bill_id=$idbill";
   pdo_execute($sql);
 }
-
-
-
-
-
-
-
-
-
-// function insertcart($cart_name, $cart_img, $cart_price, $cart_soluong, $cart_thanhtien)
-// {
-//     $sql = "INSERT INTO cart(cart_name,cart_img,cart_price,cart_soluong	,cart_thanhtien) VALUES('$cart_name','$cart_img','$cart_price','$cart_soluong','$cart_thanhtien')";
-//     pdo_execute($sql);
-// }
-
-// function tongdonhang()
-// {
-//     $tong = 0;
-
-//     foreach ($_SESSION['my_cart'] as $cart) {
-//         $thanhtien = $cart[3] * $cart[4];
-//         $tong += $thanhtien;
-//     }
-//     return $tong;
-// }
-
-
-// function loadall_cart($id)
-// {
-//   $sql = "select * from cart where bill_id=$id";
-//   $result = pdo_query_all($sql);
-//   return $result;
-// }
-
-// function insert_bill($name, $email, $address, $tel, $ngaydathang, $tongdonhang)
-// {
-//     $sql = "INSERT INTO bill(bill_name,bill_email,bill_address,bill_tel,bill_ngaydat,bill_tongtien) VALUES('$name','$email','$address','$tel','$ngaydathang','$tongdonhang')";
-//     pdo_execute($sql);
-// }
-
 
 
 ?>

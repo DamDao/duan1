@@ -27,11 +27,11 @@
                     <td>'.$tk_email.'</td>
                     <td>'.$tk_address.'</td>
                     <td>'.$tk_tel.'</td>
-                    <td>'.$tk_role.'</td>
-                    <td> <a href="'.$delete_tk.'"><i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>
-                </tr>';
-                    }
-                ?>
+                    <td>'.$tk_role.'</td>';
+                    ?>
+                <td> <a  onclick="return confirm('Bạn có muốn xóa ko')" href="<?php echo $delete_tk ?>"><i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>
+            </tr>
+        <?php }?>
             </table>
         </div>
         <!-- <div class="row mb10">

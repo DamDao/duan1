@@ -69,6 +69,22 @@ function pdo_query($sql)
     }
 }
 
+function pdo_query_all($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        $rows = $stmt->fetchAll();
+        return $rows;
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+}
+
 // function pdo_query_all($sql)
 // {
 //     $sql_args = array_slice(func_get_args(), 1);

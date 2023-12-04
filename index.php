@@ -63,7 +63,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                 $pass = $_POST['pass'];
                 $tel = $_POST['tel'];
                 $address = $_POST['address'];
-                if ($check_user = check_user($user, $pass)) {
+                if ($check_user = check_user($user, $pass, $email)) {
                     $thongbao = "Tài khoản đã tồn tại";
                 } else {
                     insert_taikhoan($user, $pass, $email, $tel, $address);
@@ -78,7 +78,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
-                $check_user = check_user($user, $pass);
+                $check_user = check_user($user, $pass, "");
                 if (is_array($check_user) && ($check_user['tk_role'] == 0)) {
                     $_SESSION['user'] = $check_user;
                     header('Location:index.php');
@@ -100,7 +100,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                 $tel = $_POST['tel'];
                 $id = $_POST['id'];
                 update_taikhoan($tk_id, $user, $pass, $email, $address, $tel);
-                $_SESSION['user'] = check_user($user, $pass);
+                $_SESSION['user'] = check_user($user, $pass, "");
                 header("Location:index.php?act=dangnhap");
             }
             include "view/account/update_act.php";
@@ -152,7 +152,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                         // include 'view/cart/viewcart.php';
 
                     } else {
-                        echo '<h2 style="text-align:center;margin-top:100px">Xin lỗi mặt hàng này chúng tôi chỉ còn '. $soluong_sp.'</h2>';
+                        echo '<h2 style="text-align:center;margin-top:100px">Xin lỗi mặt hàng này chúng tôi chỉ còn ' . $soluong_sp . ' sản phẩm</h2>';
                     }
                 } else {
                     echo "<h2>Vui lòng đăng nhập trước nhập để thêm sản phẩm vào giỏ hàng - <a href='?act=dangnhap'>Đăng nhập ngay!!!</a></h2>";
@@ -200,7 +200,6 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
 
         case 'bill':
             if (isset($_SESSION['user']) && ($_SESSION['my_cart'] != [])) {
-
                 include "view/cart/bill.php";
             } else {
                 echo "<h2>Đăng nhập và thêm sản phẩm vào giỏ hàng để tiếp tục thanh toán</h2>";
@@ -210,36 +209,42 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
 
         case 'confirmbill':
             if (isset($_POST['gui']) && ($_POST['gui'])) {
+                
                 if (isset($_SESSION['user'])) {
                     $iduser = $_SESSION['user']['tk_id'];
                 } else {
                     $id = 0;
                 }
-                $name = $_POST['userbuy'];
-                $email = $_POST['email'];
-                $address = $_POST['diachi'];
-                $tel = $_POST['std'];
-                $pttt = $_POST['pttt'];
-                $ngaydathang = date('h:i:sa d/m/Y');
-                $tongdonhang = tongtien();
+                if (($_POST['userbuy'] != '') && ($_POST['diachi'] != '') && ($_POST['std'] != '')) {
+                    $name = $_POST['userbuy'];
+                    $email = $_POST['email'];
+                    $address = $_POST['diachi'];
+                    $tel = $_POST['std'];
+                    $pttt = $_POST['pttt'];
+                    $ngaydathang = date('h:i:sa d/m/Y');
+                    $tongdonhang = tongtien();
 
-                // tao bill
-                $idbill = insert_bill($name, $address, $tel, $email, $pttt, $tongdonhang, $ngaydathang, $tk_id);
+                    // tao bill
+                    $idbill = insert_bill($name, $address, $tel, $email, $pttt, $tongdonhang, $ngaydathang, $tk_id);
 
-                foreach ($_SESSION['my_cart'] as $cart) {
-                    // echo "<pre>";
-                    // var_dump ($cart);
-                    // die;
-                    insert_cart($cart[0], $_SESSION['user']['tk_id'], $idbill, $cart[1], $cart[3], $cart[4], $cart[5], $cart[2]);
-                    upadte_soluong($cart[0], $cart[4]);
+                    foreach ($_SESSION['my_cart'] as $cart) {
+                        // echo "<pre>";
+                        // var_dump ($cart);
+                        // die;
+                        insert_cart($cart[0], $_SESSION['user']['tk_id'], $idbill, $cart[1], $cart[3], $cart[4], $cart[5], $cart[2]);
+                        upadte_soluong($cart[0], $cart[4]);
+                    }
+                    $_SESSION['my_cart'] = [];
+                    $bill = loadone_bill($idbill);
+                    $billct = loadall_cart($idbill);
+                    include 'view/cart/ctbill.php';
+                } else{
+                    echo '<h2>Mời điền thông tin</h2>';
+                include "view/cart/bill.php";
                 }
-                $_SESSION['my_cart'] = [];
             }
-            $bill = loadone_bill($idbill);
-            $billct = loadall_cart($idbill);
             // var_dump($billct);
             // die;
-            include 'view/cart/ctbill.php';
             break;
 
         case 'mybill':

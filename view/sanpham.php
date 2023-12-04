@@ -91,7 +91,7 @@
                                 // echo $sp_soluong;
                                 echo 'hết hàng
                                     <div class="dathang">
-                                        <button class="btn btn-success "><a href="#">Hết hàng</a></button>
+                                    <button type="button" class="btn btn-success ">Hết hàng</button>
                                         
                                     </div>
                                     ';
@@ -202,7 +202,7 @@
                                 // echo $sp_soluong;
                                 echo 'hết hàng
                                 <div class="dathang">
-                                    <button class="btn btn-success "><a href="#">Hết hàng</a></button>
+                                <button type="button" class="btn btn-success ">Hết hàng</button>
                                 </div>
                                 ';
                               }

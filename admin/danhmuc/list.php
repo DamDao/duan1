@@ -18,11 +18,11 @@
                     echo
                         '<tr>
                     <td>' . $dm_id . '</td>
-                    <td>' . $dm_name . '</td>
-                    <td> <a href="' . $editdm . '"><i class="fa-regular fa-pen-to-square fa-fade fa-xl" style="color: #20365a;"></i></a> | <a href="' . $deletedm . '"><i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>
-                </tr>';
-                }
-                ?>
+                    <td>' . $dm_name . '</td>';
+                    ?>
+                <td> <a  href="<?php echo $editdm ?>"><i class="fa-regular fa-pen-to-square fa-fade fa-xl" style="color: #20365a;"></i></a> | <a  onclick="return confirm('Bạn có muốn xóa ko')"  href="<?php echo $deletedm ?>"><i class="fa-solid fa-trash fa-fade fa-xl" style="color: #020c1d;"></i></a> </td>
+            </tr>
+        <?php }?>
             </table>
         </div>
         <div class="row mb10">

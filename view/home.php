@@ -47,7 +47,9 @@
 
 <section class="dishes" id="dishes">
 
-    <h3 class="sub-heading"> TOP SẢN PHẨM YÊU THÍCH</h3>
+    <h3 class="sub-heading"> TOP SẢN PHẨM 
+        <!-- YÊU THÍCH -->
+    </h3>
     <h1 class="heading"> </h1>
 
     <div class="box-container">
@@ -88,8 +90,7 @@
                                     // echo $sp_soluong;
                                     echo 'hết hàng
                                     <div class="dathang">
-                                        <button class="btn btn-success "><a href="">Hết hàng</a></button>
-                                        
+                                    <button type="button" class="btn btn-success ">Hết hàng</button>
                                     </div>
                                     ';
                                   }
@@ -203,8 +204,7 @@
                                     // echo $sp_soluong;
                                     echo 'hết hàng
                                     <div class="dathang">
-                                        <button class="btn btn-success "><a href="">Hết hàng</a></button>
-                                        
+                                    <button type="button" class="btn btn-success ">Hết hàng</button>
                                     </div>
                                     ';
                                   }

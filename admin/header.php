@@ -21,7 +21,7 @@
             Xin chào admin chúc bạn 1 ngày tốt lành <i class="fa-regular fa-face-smile fa-xl"
                 style="color: #ffffff;"></i>
         </marquee> -->
-        <a href="#">Xin chào admin</a>
+        <a href="#">Xin chào admin</a> <a href="index.php?act=dangxuat">Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></a>
     </div>
 
     <div class="nav">
@@ -38,9 +38,9 @@
         <a href="index.php?act=dsbl">Bình luận</a>         
 
 
-        <div class="adm">
+        <!-- <div class="adm">
             <a href="index.php?act=dangxuat">Đăng Xuất <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></a>
-            <div class="">
+            <div class=""> -->
 
             <!-- <i class="fa-solid fa-user fa-lg"></i> -->
             </div>

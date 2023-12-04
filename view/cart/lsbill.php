@@ -23,6 +23,7 @@
                 foreach ($listbillct as $value):
                     extract($value);
                     // var_dump($value);
+                    $linksp = "index.php?act=sanphamct&idsp=" . $sp_id;
                     $trangthai = trangthai($bill_trangthai);
                     // $soluong = loadall_cart_count($bill_id)
                     ?>
@@ -35,8 +36,8 @@
                             <?= $bill_diachi; ?><br>
                             <?= $bill_tel; ?>
                         </td>
-                        <td style="padding:10px; width: 20px;" class="text-center"><img style="width: 80px;"
-                                src="<?= $cart_img; ?>" alt=""></td>
+                        <td style="padding:10px; width: 20px;" class="text-center"><a href="<?= $linksp?>"><img style="width: 80px;"
+                                src="<?= $cart_img; ?>" alt=""></a></td>
                         <td style="padding:10px" class="text-center">
                             <?= $cart_name; ?>
                         </td>
