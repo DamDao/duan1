@@ -313,6 +313,7 @@
                 <input type="hidden" name="namesp" value="' . $sp_name . '">
                 <input type="hidden" name="img" value="' . $sp_img . '">
                 <input type="hidden" name="price" value="' . $sp_price . '">
+                <input type="hidden" name="soluong" value="' . $sp_soluong . '">
             </div>
             <div class="tinhtrang">
                 <p class="tinhtrang1">Tình Trạng:</p>

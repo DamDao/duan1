@@ -192,7 +192,8 @@
                                 <input type="hidden" name="idsp" value="' . $sp_id . '">
                                 <input type="hidden" name="namesp" value="' . $sp_name . '">
                                 <input type="hidden" name="img" value="' . $sp_img . '">
-                                <input type="hidden" name="price" value="' . $sp_price . '">';
+                                <input type="hidden" name="price" value="' . $sp_price . '">
+                                <input type="hidden" name="soluong" value="' . $sp_soluong . '">';
                                 if (isset($sp_soluong)&&($sp_soluong>0)) {
                                     // echo 'còn'.$sp_soluong.'sản phẩm';
                                     echo'<div class="dathang">

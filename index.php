@@ -127,28 +127,33 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     $img = $_POST['img'];
                     $price = $_POST['price'];
                     $soluong = $_POST['amount'];
-
-                    // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
-                    $product_exists = false;
-                    foreach ($_SESSION['my_cart'] as &$item) {
-                        if ($item[0] == $idsp) {
-                            $item[4] += $soluong; // Tăng số lượng
-                            $item[5] = $item[4] * $item[3]; // Cập nhật thành tiền
-                            $product_exists = true;
-                            break;
+                    $soluong_sp = $_POST['soluong'];
+                    if ($soluong < $_POST['soluong']) {
+                        # code...
+                        // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
+                        $product_exists = false;
+                        foreach ($_SESSION['my_cart'] as &$item) {
+                            if ($item[0] == $idsp) {
+                                $item[4] += $soluong; // Tăng số lượng
+                                $item[5] = $item[4] * $item[3]; // Cập nhật thành tiền
+                                $product_exists = true;
+                                break;
+                            }
                         }
-                    }
+                        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
+                        if (!$product_exists) {
+                            $thanhtien = $price * $soluong;
+                            $spadd = [$idsp, $namesp, $img, $price, $soluong, $thanhtien];
+                            array_push($_SESSION['my_cart'], $spadd);
+                        }
+                        // echo "<pre>";
+                        // var_dump($_SESSION['my_cart']);
+                        // die;
+                        // include 'view/cart/viewcart.php';
 
-                    // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
-                    if (!$product_exists) {
-                        $thanhtien = $price * $soluong;
-                        $spadd = [$idsp, $namesp, $img, $price, $soluong, $thanhtien];
-                        array_push($_SESSION['my_cart'], $spadd);
+                    } else {
+                        echo '<h2 style="text-align:center;margin-top:100px">Xin lỗi mặt hàng này chúng tôi chỉ còn '. $soluong_sp.'</h2>';
                     }
-
-                    // echo "<pre>";
-                    // var_dump($_SESSION['my_cart']);
-                    // die;
                 } else {
                     echo "<h2>Vui lòng đăng nhập trước nhập để thêm sản phẩm vào giỏ hàng - <a href='?act=dangnhap'>Đăng nhập ngay!!!</a></h2>";
                 }
