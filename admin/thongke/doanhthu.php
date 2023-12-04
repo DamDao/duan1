@@ -32,9 +32,9 @@ $resultByCategory = getRevenueByCategory();
 </script>
 
 <!-- Hiển thị thông tin doanh thu theo sản phẩm -->
-<h1>Tổng doanh thu theo sản phẩm</h1>
-<div class="frm_dm frmlist_pro">
-    <table>
+<h2>Tổng doanh thu theo sản phẩm</h2>
+<div class="frm_dm">
+    <table style ="text-align: center;">
         <thead>
             <tr>
                 <th>Sản phẩm ID</th>
@@ -85,7 +85,7 @@ $resultByCategory = getRevenueByCategory();
         }
 
         var options = {
-            title: 'Doanh thu theo sản phẩm',
+            title: 'Biểu đồ doanh thu',
             chartArea: { width: '50%' },
             hAxis: {
                 title: 'Doanh thu ',

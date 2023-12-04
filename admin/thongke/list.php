@@ -1,6 +1,27 @@
+<style>
+    .tdt {
+        background: #fff;
+        border-radius: 7px;
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+        height: 160px;
+        padding: 10px 20px;
+    }
+
+    .tdt a {
+        text-decoration: none;
+        float: right;
+        color: black;
+    }
+
+    .tdt a:hover {
+        font-weight: bold;
+
+    }
+</style>
+
 <div class="col-md-8">
 
-    <h1>THỐNG KÊ SẢN PHẨM</h1>
+    <h2>THỐNG KÊ SẢN PHẨM</h2>
     <?php
     // Gọi function để lấy tổng doanh thu
     $totalRevenue = getTotalRevenue();
@@ -23,7 +44,7 @@
 
 <div class="row " style="text-align: center;">
     <div class="row frm_title">
-        <h1>THÔNG TIN HÀNG HÓA</h1>
+        <h2>THÔNG TIN HÀNG HÓA</h2>
     </div>
     <div class="row box_content ">
         <div class="frm_dm">
