@@ -10,7 +10,14 @@ if (isset($_POST['dangnhap'])) {
         if (check_role($user) == 1) {
             header("location: ../index.php");
             die;
-        } 
+        }
+        else {
+            $thongbao = "Vui lòng đăng nhập tài khoản admin";
+            # code...
+        }
+    } else {
+        $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra lại user or pass";
+        # code...
     }
 }
 ?>
@@ -71,11 +78,11 @@ if (isset($_POST['dangnhap'])) {
                 <form action="" method="POST">
                     <div class="form-group">
                         <label for="">Tên Đăng Nhập:</label>
-                        <input type="text" name="user" required>
+                        <input type="text" name="user">
                     </div>
                     <div class="form-group">
                         <label for="">Mật Khẩu:</label>
-                        <input type="password" name="pass" required>
+                        <input type="password" name="pass">
                     </div>
                     <div class="form-group">
                         <input class="int_sbm" name="dangnhap" type="submit" value="Đăng Nhập"></input>
@@ -87,7 +94,9 @@ if (isset($_POST['dangnhap'])) {
                 </div> -->
                 </form>
                 <?php
-
+                    if (isset($thongbao)) {
+                        echo $thongbao;
+                    }
                 
                 ?>
             </div>

@@ -58,17 +58,22 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
 
         case 'dangky':
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
-                $email = $_POST['email'];
-                $user = $_POST['user'];
-                $pass = $_POST['pass'];
-                $tel = $_POST['tel'];
-                $address = $_POST['address'];
-                if ($check_user = check_user($user, $pass, $email)) {
-                    $thongbao = "Tài khoản đã tồn tại";
-                } else {
-                    insert_taikhoan($user, $pass, $email, $tel, $address);
-                    $thongbao = "Đã đăng ký thành công vui lòng đăng nhập để thực hiện các chức năng";
-                    header("Location:index.php?act=index.php");
+                if (($_POST['user'] != '') && ($pass = $_POST['pass'] != '') && ($pass = $_POST['email'] != '')) {
+
+                    $email = $_POST['email'];
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $tel = $_POST['tel'];
+                    $address = $_POST['address'];
+                    if ($check_user = check_user($user, $pass, $email)) {
+                        $thongbao = "Tài khoản đã tồn tại";
+                    } else {
+                        insert_taikhoan($user, $pass, $email, $tel, $address);
+                        $thongbao = "Đã đăng ký thành công vui lòng đăng nhập để thực hiện các chức năng";
+                        header("Location:index.php?act=index.php");
+                    }
+                }else{
+                    echo '<h2 style="text-align: center";>Mời nhập đầy đủ thông tin</h2>';
                 }
             }
             include "view/account/register.php";
@@ -209,7 +214,7 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
 
         case 'confirmbill':
             if (isset($_POST['gui']) && ($_POST['gui'])) {
-                
+
                 if (isset($_SESSION['user'])) {
                     $iduser = $_SESSION['user']['tk_id'];
                 } else {
@@ -238,9 +243,9 @@ if (isset($_GET['act']) && ($_GET['act'] != 0)) {
                     $bill = loadone_bill($idbill);
                     $billct = loadall_cart($idbill);
                     include 'view/cart/ctbill.php';
-                } else{
+                } else {
                     echo '<h2>Mời điền thông tin</h2>';
-                include "view/cart/bill.php";
+                    include "view/cart/bill.php";
                 }
             }
             // var_dump($billct);

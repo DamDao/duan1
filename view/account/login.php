@@ -34,11 +34,11 @@
             <form action="index.php?act=dangnhap" method="POST">
                 <div class="form-group">
                     <label for="">Tên Đăng Nhập:</label>
-                    <input type="text" name="user" required>
+                    <input type="text" name="user">
                 </div>
                 <div class="form-group">
                     <label for="">Mật Khẩu:</label>
-                    <input type="password" name="pass" required>
+                    <input type="password" name="pass">
                 </div>
                 <div class="form-group">
                     <input class="int_sbm" name="dangnhap" type="submit" value="Đăng Nhập"></input>

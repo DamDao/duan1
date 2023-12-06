@@ -6,15 +6,15 @@
         <form action="index.php?act=dangky" method="POST">
             <div class="form-group">
                 <label for="username">Tên Đăng Nhập:</label>
-                <input type="text" name="user" required>
+                <input type="text" name="user">
             </div>
             <div class="form-group">
                 <label for="password">Mật Khẩu:</label>
-                <input type="password" name="pass" required>
+                <input type="password" name="pass">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" name="email" required>
+                <input type="email" name="email">
             </div>
             <div class="form-group">
                 <label for="phone">Số Điện Thoại:</label>
