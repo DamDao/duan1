@@ -38,6 +38,10 @@
         <?= number_format($bill_tongtien); ?> VND
       </label><br>
       <!-- <input readonly type="text" name="" value="" id=""> -->
+      <label for="name" class="form-label"> Ngày đặt:
+        <?= $bill_ngaydat; ?>
+      </label><br>
+      <!-- <input readonly type="text" name="" value="" id=""> -->
       <label for="name" class="form-label">Trạng thái:
         <?php
         if ($tt == 'Đơn hàng giao thành công') {
@@ -49,11 +53,6 @@
           echo 'Đơn hàng chưa được thanh toán';
         } ?>
       </label><br>
-      <label for="name" class="form-label"> Ngày đặt:
-        <?= $bill_ngaydat; ?>
-      </label><br>
-      <!-- <input readonly type="text" name="" value="" id=""> -->
-
 
     </div>
     <div class="mb10 ">

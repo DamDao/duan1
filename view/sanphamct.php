@@ -320,7 +320,8 @@
                 <p class="tinhtrang2">';
               if (isset($sp_soluong)&&($sp_soluong>0)) {
                 // echo 'còn'.$sp_soluong.'sản phẩm';
-                echo 'còn hàng';
+                echo 'còn hàng <br>';
+                echo 'còn ' .$sp_soluong. 'sản phẩm';
                 echo'<div class="dathang">
                     <button type="submit" name="addtocart" class="btn btn-success ">Thêm giỏ hàng</button>
                     

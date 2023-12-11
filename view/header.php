@@ -64,7 +64,7 @@
             <nav class="navbar">
                 <a class="active" href="index.php?act=index.php"><i class="fa-solid fa-house fa-lg"></i> Trang Chủ</a>
                 <a href="index.php?act=sanpham"><i class="fa-solid fa-book fa-lg"></i>  Sản Phẩm</a>
-                <a class="nav-link" href="index.php?act=mybill">Đơn hàng</a>
+                <a class="nav-link" href="index.php?act=mybill"><i class="fa-solid fa-book fa-lg"></i> Đơn hàng</a>
                 <!-- <a href="index.php"><i class="fa-solid fa-blog fa-lg"></i>  Blog</a> -->
                 <!-- <a href="#menu">menu</a>
                 <a href="#review">review</a>

@@ -11,17 +11,6 @@ function loadall_taikhoan()
     return $list_tk;
 }
 
-// function check_role($user) {
-//     $sql = "SELECT * FROM tai_khoan WHERE tk_name='$user'";
-//     $result = pdo_query_one($sql);
-//     // var_dump($result);die;
-//     if ($result !== false) {
-//         return $result['tk_role'];
-//     } else {
-//         // Trả về một giá trị mặc định hoặc thông báo lỗi
-//         return "Role not found";
-//     }
-// }
 
 
 function check_role($username)
@@ -49,18 +38,7 @@ function check_email($email)
     $check = pdo_query_one($sql);
     return $check;
 }
-// function account_adm($user, $pass)
-// {
-//     $sql = "SELECT * FROM `tai_khoan` where `tk_name`='$user' and `tk_pass`='$pass'and `tk_role`=1";
-//     $result = pdo_query_one($sql);
-//     if ($result) {
-//         $_SESSION['admin'] = $user;
-//         header("location:index.php");
-//     } else {
-//         $_SESSION['check_valid'] = 'Tài Khoản Hoặc Mật Khẩu Không Đúng';
-//     }
-//     // return $result;
-// }
+
 function update_taikhoan($id, $user, $pass, $email, $address, $tel)
 {
     $sql = "UPDATE `tai_khoan` SET  `tk_name`= '$user', `tk_pass`= '$pass', `tk_email`= '$email', `tk_address`= '$address', `tk_tel`= '$tel' WHERE `tk_id`=" . $id;

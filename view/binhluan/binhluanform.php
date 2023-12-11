@@ -96,12 +96,17 @@ $list_taikhoan = loadall_taikhoan();
         <?php
 
         if (isset($_POST['gui_bl']) && $_POST['gui_bl']) {
-            $noidung = $_POST['noidung'];
-            $idpro = $_POST['idpro'];
-            $iduser = $_SESSION['user']['tk_id'];
-            $ngaybinhluan = date('h:i:sa d/m/Y');
-            insert_binhluan($noidung, $iduser, $idpro, $ngaybinhluan);
-            header("Location:" . $_SERVER['HTTP_REFERER']);
+            if ($_POST['noidung'] !='') {
+                $noidung = $_POST['noidung'];
+                $idpro = $_POST['idpro'];
+                $iduser = $_SESSION['user']['tk_id'];
+                $ngaybinhluan = date('h:i:sa d/m/Y');
+                insert_binhluan($noidung, $iduser, $idpro, $ngaybinhluan);
+                header("Location:" . $_SERVER['HTTP_REFERER']);
+            }
+            else {
+                header("Location:" . $_SERVER['HTTP_REFERER']);
+            }
         }
         ?>
     </div>
